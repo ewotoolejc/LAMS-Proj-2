@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+<main id="idxartist">
+
+<h1 id="rostertitle">Artist Roster</h1>
+<% if (artists.length) { %>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Signed On</th>
+        <th>Detail Page</th>
+        <th>Deals Page</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% function compareName(artA, artB) { %>
+       <% if (artA.name < artB.name) { %>
+         <% return -1; } %>
+         <% if (artA.name > artB.name) { %>
+         <% return 1;} %>
+         <% return 0;}; %>
+     <% artists.sort(compareName) %>
+      <% artists.forEach(function(a) { %>
+        <tr>
+          <td><%= a.name %></td>
+          <td><%= a.signed_on %></td>
+          <td>form action="/artists/<%= a._id %>"><button type="submit" id="artdtlbutton"><% a.name %> Details</button></form></td>
+          <td>Deals</td>
+        </tr>
+     <% }); %>
+    </tbody>
+  </table> 
+<% } else { %>
+    <h2 class="none" >No Artists yet! &#128557; </h2>
+<% } %>
+
+<form action="/artists/new">
+  <input id="addartbutton" type="submit" value="Add a New Artist" />
+</form>
+</main>
+<%- include('../partials/footer') %>

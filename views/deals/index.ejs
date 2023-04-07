@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<main id="idxdeals">
+
+<h1 id="dealtitle">Deals & Partnerships</h1>
+<% if (deals.length) { %>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Deal</th>
+        <th>Artist(s)</th>
+        <th>Detail Page</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% deals.forEach(function(d) { %>
+        <tr>
+          <td><%= d.name %></td>
+          <td>d.artists.name</td>
+          <td>Details</td>
+        </tr>
+     <% }); %>
+    </tbody>
+  </table> 
+<% } else { %>
+    <h2 class="none">No Deals yet! &#128557; </h2>
+<% } %>
+
+</main>
+<%- include('../partials/footer') %>

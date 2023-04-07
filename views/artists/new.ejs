@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<main id="newartist">
+
+<h1 id="addartisttitle">Add a New Artist</h1>
+    <form id="addartistform" action="/artists" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name">
+        <label>Signed:</label>
+        <input type="checkbox" name="signed" value="true">
+        <label>Signed On Date:</label>
+        <input type="date" name="signed_on">
+        <label>Additional Details</label>
+        <input type="text" size="10" id="artdetailtext" name="details">
+    </form>
+
+
+
+</main>
+<%- include('../partials/footer') %>

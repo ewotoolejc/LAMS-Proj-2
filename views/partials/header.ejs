@@ -8,13 +8,16 @@
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
+  <script src="/javascripts/general.js" type="text/javascript"></script>
+  <nav class="topnav">
+    <a href="/" id="hometxt">LAMS</a>
     <!-- <a href="/movies" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL MOVIES</a> -->
-    <% if (user) { %>
-      <a href="/logout">LOG OUT</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>
+        <a href='/artists' id="rosternav" <%- title === 'Roster' ? 'class="active"' : '' %>>Roster</a>
+        <a href='/deals' id="dealsnav" <%- title === 'Deals & Partnerships' ? 'class="active"' : '' %>>Deals & Partnerships</a>
+        <a href='/watch' id="watchnav"  <%- title === 'Watch' ? 'class="active"' : '' %>>Watch</a>
   </nav>
-  <main>
-    <h1><%= title %></h1>
+  <% if (user) { %>
+    <a id="loginoutnav" href="/logout">LOG OUT</a>>/
+    <% } else { %>
+    <a id="loginoutnav" href="/auth/google">&nbsp;<img src="https://i.imgur.com/FHjYyi0.png">LOG IN</a>
+    <% } %>

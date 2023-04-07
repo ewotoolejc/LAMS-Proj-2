@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<main id="idxwatch">
+
+<h1 id="watchtitle">Artist Watch List</h1>
+<% if (artists.length) { %>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Detail Page</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% artists.forEach(function(a) { %>
+        <%if (a.signed = 'false') { %>
+        <tr>
+          <td><%= a.name %></td>
+          <td>Details</td>
+        </tr>
+    </tbody>
+  </table> 
+<% }})} else { %>
+    <h2 class="none" >Watching no one yet! &#128557; </h2>
+<% }; %>
+
+<form action="/artists/new">
+  <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
+</form>
+</main>
+<%- include('../partials/footer') %>

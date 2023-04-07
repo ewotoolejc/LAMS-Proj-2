@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Label Artist Management System' });
+  res.render('index', { title: 'LAMS' });
 });
 
 router.get('/auth/google', passport.authenticate(

@@ -1,19 +1,120 @@
+@media (min-width: 280px) {
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 7vmin 7vmin 140vmin;
+  background-image: url('https://scontent-dfw5-1.xx.fbcdn.net/v/t31.18172-8/12091323_10153759342049124_614968575717268529_o.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=yeM6F78ZK4IAX-XkKWg&_nc_oc=AQmCaMyJJIrrJZj1vId_9rZf2u01Wj0ZOX45niNf9IfF84nUlkF2H9c6GnW1TURkj7snpz30Ijv5uSphjQeuTQPL&_nc_ht=scontent-dfw5-1.xx&oh=00_AfDLgbvG4zjUX9of-dbmf-9iD4CdAPSX_eJat1XkYdaZ3g&oe=6456B43E');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 5vmin;
+  font: 3vmin "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* Style the navigation menu */
+.topnav {
+  grid-row: 1/2;
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 2vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav > * {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 1.5vmin;
+}
+
+nav > a:hover:not(.active) {
+  color: whitesmoke;
+}
+
+nav > a.active {
+  color: red;
+  cursor: default;
+}
+
+#hometxt {
+  color: red;
+}
+
+#rosternav {
+  color: whitesmoke;
+}
+
+#dealsnav {
+  color: whitesmoke;
+}
+
+#watchnav {
+  color: whitesmoke;
+}
+
+#loginoutnav {
+  grid-row: 2/3;
+  color: whitesmoke;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#loginoutnav img {
+  height: 5vmin;
+}
+
+#idxhome {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: 1fr;
+
+}
+
+#homeh1 {
+  color: red;
+  grid-column: 1/2;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 3vmin;
+  font-size: x-large;
 }
 
 a {
   color: #00B7FF;
 }
 
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
+#rostertitle {
+  color: #fc5e03;
 }
 
-.login img {
-  height: 30px;
+#addartisttitle {
+  color: #fc5e03;
+}
+
+#addartistform {
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 2vmin;
+}
+
+#dealtitle {
+  color: #6b03fc; 
+}
+
+#adddealtitle {
+  color: #6b03fc; 
+}
+
+#watchtitle {
+  color: #03fc17;
+}
+
+.none {
+  color: darkred;
+}
+
+
 }
