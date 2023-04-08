@@ -7,6 +7,9 @@ module.exports = {
     details,
     create,
     delete: deleteArtist,
+    edit,
+    update,
+    addArtist,
 };
 
 async function index(req, res) {
@@ -21,6 +24,30 @@ function newArtist(req, res) {
 async function details(req, res) {
     const artist = await Artist.findById(req.params.id).populate('deals');
     res.render('artists/details', { title: `${artist.name}`, artist })
+};
+
+async function edit(req, res) {
+    const artist = await Artist.findById(req.params.id).populate('deals');
+    res.render('artists/edit', { title: `${artist.name} Edit`, artist })
+};
+
+async function update(req, res) {
+    const artist = await Artist.findById(req.params.id);
+    if (artist.signed === true) {
+    req.body.signed_on += 'T00:00';
+    } else if (artist.signed === false) {
+        req.body.signed_on = '';
+    }
+    console.log(req.body);
+    await Artist.updateOne(artist, req.body);
+    res.redirect(`/artists/${artist._id}`);
+};
+
+async function addArtist(req, res) {
+    const deal = await Deal.findById(req.params.id);
+    deal.artists.push(req.body.artistId);
+    await deal.save();
+    res.redirect(`/deals/${deal._id}`);
 };
 
 async function create(req, res) {
@@ -41,9 +68,9 @@ async function create(req, res) {
 async function deleteArtist(req, res) {
     const artist = await Artist.findById(req.params.id);
     if (artist.signed === false) {
-        await Artist.deleteOne(artist ); 
+        await Artist.deleteOne(artist); 
         res.redirect('/watch');
     } else {
     await Artist.deleteOne(artist);
     res.redirect('/artists');
-  };};
+};};

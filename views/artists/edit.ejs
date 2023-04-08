@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<main id="editartistdetail">
+
+<form id ="editform" action="/artists/<%= artist._id %>?_method=PUT" method="POST" autocomplete="off">
+<label>Artist Name:</label>
+<input type="text" name="name" value="<%= artist.name %>">
+<!-- <label>Signed?:</label> -->
+<% if (artist.signed === true) { %>
+<label>Signed On:</label>
+<label>(Current is: <%= artist.signed_on.toDateString() %>) </label>
+<input type="date" name="signed_on" required>
+<% } %>
+<label>Details:</label>
+<input type="text" size="50" name="details" value="<%= artist.details %>">
+<button type="submit">Update Artist</button>
+</form>
+</main>
+<%- include('../partials/footer') %>

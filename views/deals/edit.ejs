@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<main id="editartistdetail">
+
+<form id ="dealeditform" action="/deals/<%= deal._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Deal/Partnership Name:</label>
+    <input type="text" name="name" value="<%= deal.name %>">
+    <label>Details:</label>
+    <input type="text" size="50" name="info" value="<%= deal.info %>">
+    <button type="submit">Update Deal/Partnership</button>
+</form>
+
+</main>
+<%- include('../partials/footer') %>

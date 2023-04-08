@@ -14,6 +14,8 @@
         <th>Deal</th>
         <th>Artist(s)</th>
         <th>Detail Page</th>
+        <th></th>
+
       </tr>
     </thead>
     <tbody>
@@ -24,6 +26,9 @@
             `<p>${a.name}</p>`
             ).join('') %></td>
           <td><form action="/deals/<%= d._id %>"><button type="submit" id="dldtlbutton"><% d.name %> Details</button></form></td>
+          <td><form action="/deals/<%= d._id %>?_method=DELETE"
+            class="delete-button" method="POST">
+            <button type="submit">Delete Deal</button></form></td>
         </tr>
      <% }); %>
     </tbody>

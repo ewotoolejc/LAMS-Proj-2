@@ -2,12 +2,15 @@
 <main id="artistdetail">
 
 <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>
-
+<form id="toeditbutton" action="/artists/<%= artist._id %>/edit">
+  <button type="submit">Edit Artist Info</button></form>
+<% if (artist.signed === true) { %>
 <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
 <div id="dealsforartist"><p>Deals/Partnerships for Artist:</p><%- artist.deals.map(d =>
   `<p><a href="/deals/${d._id}">${d.name}</a></p>`
   ).join('') %></div>
-<div id="misc_details"><p><span id="details">Misc Details:</span><br><%= artist.details %></p></di>
+  <% } %>
+  <div id="misc_details"><p><span id="details">Misc Details:</span><br><%= artist.details %></p></di>
 
   <form id="addsongs" method="POST"
   action="/artists/<%= artist._id %>/songs">

@@ -11,6 +11,7 @@ action="/deals/">
 <input type="text" name="info"><br>
 <label>Artists attached to:</label>
 <select name='artistId'>
+<option value=" "></option>
 <% artists.forEach(function(a) { %>
 <% if (a.signed === true) { %>
 <option value="<%= a._id %>"> <%= a.name %></option>

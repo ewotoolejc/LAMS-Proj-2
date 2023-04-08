@@ -1,6 +1,10 @@
 <%- include('../partials/header') %>
 <main id="idxartist">
 
+<form action="/artists/new">
+  <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
+</form>
+
 <h1 id="rostertitle">Artist Roster</h1>
 <% if (artists.length) { %>
 <table class="table">
@@ -30,7 +34,7 @@
           <td>Deals</td>
           <td> <form action="/artists/<%= a.id %>?_method=DELETE"
             class="delete-button" method="POST">
-            <button type="submit">Delete Artist</button></td>
+            <button type="submit">Delete Artist</button></form></td>
         </tr>
       <% }}); %>
     </tbody>
@@ -39,8 +43,5 @@
     <h2 class="none" >No Artists yet! &#128557; </h2>
 <% } %>
 
-<form action="/artists/new">
-  <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
-</form>
 </main>
 <%- include('../partials/footer') %>

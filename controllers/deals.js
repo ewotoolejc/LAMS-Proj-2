@@ -6,6 +6,9 @@ module.exports = {
     new: newDeal,
     details,
     create,
+    delete: deleteDeal,
+    edit,
+    update,
 }
 
 async function index(req, res) {
@@ -20,11 +23,22 @@ async function newDeal(req, res) {
 
 async function details(req, res) {
     const deal = await Deal.findById(req.params.id).populate('artists');
-    // const artists = await Artist.find({} );
-    res.render('deals/details', { title: `${deal.name}`, deal })
+    const artists = await Artist.find({} );
+    res.render('deals/details', { title: `${deal.name}`, deal, artists })
 };
-// WORKS FOR ONE BELOW
 
+async function edit(req, res) {
+    const deal = await Deal.findById(req.params.id).populate('artists');
+    res.render('deals/edit', { title: `${deal.name} Edit`, deal })
+};
+
+async function update(req, res) {
+    const deal = await Deal.findById(req.params.id);
+    await Deal.updateOne(deal, req.body);
+    res.redirect(`/deals/${deal._id}`);
+};
+
+// WORKS FOR ONE BELOW
 async function create(req, res) {
     console.log(req);
     try {
@@ -39,6 +53,12 @@ async function create(req, res) {
        console.log(err);
        res.render('deals/new', { errorMsg: err.message });
      }
+};
+
+async function deleteDeal(req,res) {
+    const deal = await Deal.findById(req.params.id);
+    await Deal.deleteOne(deal);
+    res.redirect('/deals');
 };
 
 // async function create(req, res) {

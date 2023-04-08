@@ -130,6 +130,10 @@ a {
   color: whitesmoke;
 }
 
+#dealsforartist {
+  color: whitesmoke;
+}
+
 #details {
   color: orangered;
 }
@@ -141,6 +145,18 @@ a {
 
 #dealsadd {
   color: white;
+}
+
+#dealdetail {
+  color: whitesmoke;
+}
+
+#editform {
+  color: whitesmoke;
+}
+
+#dealeditform {
+  color: whitesmoke;
 }
 
 .none {
