@@ -4,13 +4,15 @@
 <h1 id="addartisttitle">Add a New Artist</h1>
     <form id="addartistform" action="/artists" method="POST">
         <label>Name:</label>
-        <input type="text" name="name">
+        <input type="text" name="name"><br>
         <label>Signed:</label>
-        <input type="checkbox" name="signed" value="true">
+        <input type="checkbox" name="signed" value="false"><br>
         <label>Signed On Date:</label>
-        <input type="date" name="signed_on">
+        <input type="date" name="signed_on"><br>
         <label>Additional Details</label>
         <input type="text" size="10" id="artdetailtext" name="details">
+    </label><br>
+    <button id="addartistbutton" type="submit">Add to Database</button>
     </form>
 
 

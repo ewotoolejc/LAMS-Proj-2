@@ -8,20 +8,28 @@
       <tr>
         <th>Name</th>
         <th>Detail Page</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% artists.forEach(function(a) { %>
-        <%if (a.signed = 'false') { %>
+      <%if (a.signed === false) { %>
         <tr>
           <td><%= a.name %></td>
-          <td>Details</td>
+          <td><form action="/artists/<%= a._id %>">
+            <button type="submit" id="artdtlbutton"><%= a.name %> Details</button>
+          </form></td>
+          <td><td> <form action="/artists/<%= a.id %>?_method=DELETE"
+            class="delete-button" method="POST">
+            <button type="submit">Delete Watch Artist</button></td>
+        </tr></td>
         </tr>
+      <% }}); %>
     </tbody>
   </table> 
-<% }})} else { %>
+  <% } else { %>
     <h2 class="none" >Watching no one yet! &#128557; </h2>
-<% }; %>
+<% } %>
 
 <form action="/artists/new">
   <input id="addartbutton" type="submit" value="Add New Artist to Watch" />

@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const dealSchema = new Schema ({
     name: String,
     info: String,
-    artists: {
+    artists: [{
         type: Schema.Types.ObjectId,
         ref: "Artist"
-    },
+    }],
 }, {
     timestamps: true,
 });

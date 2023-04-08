@@ -10,6 +10,7 @@
         <th>Signed On</th>
         <th>Detail Page</th>
         <th>Deals Page</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,13 +22,17 @@
          <% return 0;}; %>
      <% artists.sort(compareName) %>
       <% artists.forEach(function(a) { %>
+        <%if (a.signed === true) { %>
         <tr>
           <td><%= a.name %></td>
-          <td><%= a.signed_on %></td>
-          <td>form action="/artists/<%= a._id %>"><button type="submit" id="artdtlbutton"><% a.name %> Details</button></form></td>
+          <td><%= a.signed_on.toLocaleDateString() %></td>
+          <td><form action="/artists/<%= a._id %>"><button type="submit" id="artdtlbutton"><% a.name %> Details</button></form></td>
           <td>Deals</td>
+          <td> <form action="/artists/<%= a.id %>?_method=DELETE"
+            class="delete-button" method="POST">
+            <button type="submit">Delete Artist</button></td>
         </tr>
-     <% }); %>
+      <% }}); %>
     </tbody>
   </table> 
 <% } else { %>
@@ -35,7 +40,7 @@
 <% } %>
 
 <form action="/artists/new">
-  <input id="addartbutton" type="submit" value="Add a New Artist" />
+  <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
 </form>
 </main>
 <%- include('../partials/footer') %>

@@ -2,6 +2,11 @@
 <main id="idxdeals">
 
 <h1 id="dealtitle">Deals & Partnerships</h1>
+
+<form action="/deals/new">
+  <input id="adddlpgbutton" type="submit" value="Add a New Deal or Partnership" />
+</form>
+
 <% if (deals.length) { %>
 <table class="table">
     <thead>
@@ -15,8 +20,10 @@
       <% deals.forEach(function(d) { %>
         <tr>
           <td><%= d.name %></td>
-          <td>d.artists.name</td>
-          <td>Details</td>
+          <td><%- d.artists.map(a =>
+            `<p>${a.name}</p>`
+            ).join('') %></td>
+          <td><form action="/deals/<%= d._id %>"><button type="submit" id="dldtlbutton"><% d.name %> Details</button></form></td>
         </tr>
      <% }); %>
     </tbody>

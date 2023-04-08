@@ -12,10 +12,10 @@ const songSchema = new Schema ({
 
 const artistSchema = new Schema ({
     name: { type: String, required: true },
-    signed: Boolean,
+    signed: { type: Boolean, default: false },
     signed_on: Date,
     details: String,
-    Songs: [songSchema],
+    songs: [songSchema],
     deals: [{
         type: Schema.Types.ObjectId,
         ref: 'Deal'
