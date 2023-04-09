@@ -11,6 +11,7 @@ router.post("/artists", artistsCtrl.create);
 router.delete('/artists/:id', artistsCtrl.delete);
 
 router.put('/artists/:id', artistsCtrl.update);
-router.put('/deals/:id/artists', artistsCtrl.addArtist);
+router.put('/deals/:id/artists', artistsCtrl.addArtisttoDeal);
+router.put('/artists/:id/signed', artistsCtrl.updateToSigned);
 
 module.exports = router;

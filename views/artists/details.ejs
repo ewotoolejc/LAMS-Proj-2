@@ -2,7 +2,7 @@
 <main id="artistdetail">
 
 <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>
-<form id="toeditbutton" action="/artists/<%= artist._id %>/edit">
+<form id="toeditartfrom" action="/artists/<%= artist._id %>/edit">
   <button type="submit">Edit Artist Info</button></form>
 <% if (artist.signed === true) { %>
 <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
@@ -10,9 +10,18 @@
   `<p><a href="/deals/${d._id}">${d.name}</a></p>`
   ).join('') %></div>
   <% } %>
-  <div id="misc_details"><p><span id="details">Misc Details:</span><br><%= artist.details %></p></di>
+  <% if (artist.signed === false) { %>
+  <form action="/artists/<%= artist._id %>/signed?_method=PUT" method="POST" autocomplete="off">
+    <label>Signed?!:</label>
+    <input type="checkbox" name="signed" value="false">
+    <label>Signed On Date:</label>
+    <input type="date" name="signed_on" required>
+    <button type="submit">Yes!</button>
+  </form>
+  <% } %>
+  <div id="misc_details"><p><span id="details">Misc Details:</span><br><%= artist.details %></p></div>
 
-  <form id="addsongs" method="POST"
+<form id="addsongs" method="POST"
   action="/artists/<%= artist._id %>/songs">
 <label>Song Name:</label>
 <input type="text" name="title">

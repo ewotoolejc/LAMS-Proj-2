@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 <main id="idxwatch">
-<form action="/artists/new">
+<form id="watchaddartdfrom" action="/artists/new">
   <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
 </form>
 <h1 id="watchtitle">Artist Watch List</h1>
 <% if (artists.length) { %>
 <table class="table">
     <thead>
-      <tr>
+      <tr id="watchTH">
         <th>Name</th>
         <th>Detail Page</th>
         <th></th>

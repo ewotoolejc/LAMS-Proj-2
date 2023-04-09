@@ -1,9 +1,8 @@
 @media (min-width: 280px) {
 
 body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 7vmin 7vmin 140vmin;
+  display: flex;
+  flex-direction: column;
   background-image: url('https://scontent-dfw5-1.xx.fbcdn.net/v/t31.18172-8/12091323_10153759342049124_614968575717268529_o.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=yeM6F78ZK4IAX-XkKWg&_nc_oc=AQmCaMyJJIrrJZj1vId_9rZf2u01Wj0ZOX45niNf9IfF84nUlkF2H9c6GnW1TURkj7snpz30Ijv5uSphjQeuTQPL&_nc_ht=scontent-dfw5-1.xx&oh=00_AfDLgbvG4zjUX9of-dbmf-9iD4CdAPSX_eJat1XkYdaZ3g&oe=6456B43E');
   background-position: center;
   background-repeat: no-repeat;
@@ -13,52 +12,56 @@ body {
   font: 3vmin "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* Style the navigation menu */
+
 .topnav {
-  grid-row: 1/2;
+  overflow: hidden;
   background-color: rgba(174, 179, 190, .9);
   border-radius: 2vmin;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
-nav > * {
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  padding: 1.5vmin;
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 3vmin;
+  text-decoration: none;
+  font-size: 6vmin;
+  display: block;
 }
 
 nav > a:hover:not(.active) {
   color: whitesmoke;
 }
 
-nav > a.active {
+.topnav > a.active {
   color: red;
   cursor: default;
 }
 
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #6bd681;
+  color: white;
+}
+
 #hometxt {
-  color: red;
-}
-
-#rosternav {
-  color: whitesmoke;
-}
-
-#dealsnav {
-  color: whitesmoke;
-}
-
-#watchnav {
-  color: whitesmoke;
-}
-
-#loginoutnav {
-  grid-row: 2/3;
-  color: whitesmoke;
-  display: flex;
-  justify-content: right;
-  align-items: center;
+  color: #b00404;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #loginoutnav img {
@@ -66,43 +69,120 @@ nav > a.active {
 }
 
 #idxhome {
-  grid-row: 3/4;
   display: grid;
-  grid-template-columns: 1fr;
+  height: 130vmin;
 }
 
 #homeh1 {
-  color: red;
-  grid-column: 1/2;
+  color: #b00404;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   text-align: center;
   align-self: center;
   background-color: rgba(174, 179, 190, .9);
+  padding: 2vmin;
   border-radius: 3vmin;
   font-size: x-large;
 }
 
-#idxwatch {
-  grid-row: 3/4;
-  display: grid;
-  grid-template-columns: 1fr;
-}
 
 a {
   color: #00B7FF;
 }
 
+#idxartist {
+  display: grid;
+}
+
+#addartfromroster {
+  justify-self: center;
+  margin: 4vmin;
+  scale: 70%
+}
+
 #rostertitle {
   color: #fc5e03;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  font-size: x-large;
+}
+
+#rosterTH {
+  background-color: #fc5e03;
+}
+
+#newartist {
+  display: grid;
 }
 
 #addartisttitle {
   color: #fc5e03;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
 }
 
 #addartistform {
   background-color: rgba(174, 179, 190, .9);
   border-radius: 2vmin;
+  padding: 2vmin;
+  color: whitesmoke;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: medium;
+}
+
+#artdetailtext {
+  width: 90%;
+  resize: vertical;
+}
+
+#artistdetail {
+  display: grid;
+}
+
+#artistdetailtitle {
+  color: #fc5e03;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  font-size: x-large;
+}
+
+#toeditartfrom {
+  margin: 1vmin;
+  scale: 70%;
+  justify-self: center;
+}
+
+#signeddate {
+  color: whitesmoke;
+  font-size: medium;
+  margin: -2vmin;
+}
+
+#dealsforartist {
+  color: whitesmoke;
+  font-size: medium;
+  margin: -2vmin;
+}
+
+#details {
+  color: orangered;
+  font-size: medium;
+}
+
+#discography {
+  color: whitesmoke;
+  background-color: rgba(252, 94, 3, .5);
+  padding: 2vmin;
+  padding-left: 8vmin;
+  padding-right: 8vmin;
+  border-radius: 3vmin;
+  font-size: large;
+  justify-self: center;
+}
+
+#misc_details {
+  color: white;
+  font-size: medium;
+  /* background-color: rgba(174, 179, 190, .9); */
 }
 
 #dealtitle {
@@ -113,34 +193,56 @@ a {
   color: #6b03fc; 
 }
 
-#watchtitle {
-  color: #03fc17;
+#idxwatch {
+  display: grid;
 }
 
-.table {
+#watchaddartdfrom {
+  justify-self: center;
+  margin: 4vmin;
+  scale: 70%
+}
+
+#addartbutton {
+  padding: 1vmin;
+  align-self: center;
+}
+
+#watchtitle {
+  color: #2bba00;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  justify-self: center;
+}
+
+.table{
+  width: 100%;
+}
+
+.table, th, td {
   color: white;
   background-color: rgba(174, 179, 190, .9);
+  border-collapse: collapse;
+  border: .5vmin solid;
 }
 
-#artistdetailtitle {
-  color:white;
+#watchTH {
+  background-color: #2bba00;
 }
 
-#signeddate {
-  color: whitesmoke;
+td:nth-child(2) {
+  text-align: center;
 }
 
-#dealsforartist {
-  color: whitesmoke;
+td:last-child {
+  width: 15%;
 }
 
-#details {
-  color: orangered;
+.delete-button {
+  scale: 70%;
 }
 
-#misc_details {
-  color: white;
-  /* background-color: rgba(174, 179, 190, .9); */
+#artdtlbutton {
+  scale: 70%;
 }
 
 #dealsadd {

@@ -9,7 +9,8 @@ module.exports = {
     delete: deleteArtist,
     edit,
     update,
-    addArtist,
+    addArtisttoDeal,
+    updateToSigned,
 };
 
 async function index(req, res) {
@@ -38,15 +39,25 @@ async function update(req, res) {
     } else if (artist.signed === false) {
         req.body.signed_on = '';
     }
-    console.log(req.body);
     await Artist.updateOne(artist, req.body);
     res.redirect(`/artists/${artist._id}`);
 };
 
-async function addArtist(req, res) {
+async function updateToSigned(req, res) {
+    const artist = await Artist.findById(req.params.id);
+    req.body.signed = !!req.body.signed;
+    req.body.signed_on += 'T00:00';
+    await Artist.updateOne(artist, req.body);
+    res.redirect(`/artists/${artist._id}`); 
+};
+
+async function addArtisttoDeal(req, res) {
+    const artist = await Artist.findById(req.body.artistId);
     const deal = await Deal.findById(req.params.id);
     deal.artists.push(req.body.artistId);
     await deal.save();
+    artist.deals.push(deal._id);
+    await artist.save();
     res.redirect(`/deals/${deal._id}`);
 };
 

@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <main id="idxartist">
 
-<form action="/artists/new">
+<form id="addartfromroster" action="/artists/new">
   <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
 </form>
 
@@ -9,7 +9,7 @@
 <% if (artists.length) { %>
 <table class="table">
     <thead>
-      <tr>
+      <tr id="rosterTH" >
         <th>Artist</th>
         <th>Signed On</th>
         <th>Detail Page</th>
