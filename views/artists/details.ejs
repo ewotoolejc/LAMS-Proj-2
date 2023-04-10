@@ -2,33 +2,35 @@
 <main id="artistdetail">
 
 <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>
-<form id="toeditartfrom" action="/artists/<%= artist._id %>/edit">
-  <button type="submit">Edit Artist Info</button></form>
-<% if (artist.signed === true) { %>
-<div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
-<div id="dealsforartist"><p>Deals/Partnerships for Artist:</p><%- artist.deals.map(d =>
-  `<p><a href="/deals/${d._id}">${d.name}</a></p>`
-  ).join('') %></div>
-  <% } %>
-  <% if (artist.signed === false) { %>
-  <form action="/artists/<%= artist._id %>/signed?_method=PUT" method="POST" autocomplete="off">
-    <label>Signed?!:</label>
-    <input type="checkbox" name="signed" value="false">
-    <label>Signed On Date:</label>
-    <input type="date" name="signed_on" required>
-    <button type="submit">Yes!</button>
-  </form>
-  <% } %>
-  <div id="misc_details"><p><span id="details">Misc Details:</span><br><%= artist.details %></p></div>
+<form id="toeditartform" action="/artists/<%= artist._id %>/edit">
+  <button id="toeditartbut" type="submit">Edit Artist Info</button></form>
+<div id="allDetails">
+  <% if (artist.signed === true) { %>
+  <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
+  <div id="dealsforartist"><p>Deals/Partnerships for Artist:</p><%- artist.deals.map(d =>
+    `<a href="/deals/${d._id}">${d.name}</a>`
+    ).join(', ') %></div>
+    <% } %>
+    <% if (artist.signed === false) { %>
+    <form id="watchtosignedform" action="/artists/<%= artist._id %>/signed?_method=PUT" method="POST" autocomplete="off">
+      <label>Signed?!:</label>
+      <input type="checkbox" name="signed" value="false">
+      <label>Signed On Date:</label>
+      <input type="date" name="signed_on" required>
+      <button type="submit">Yes!</button>
+    </form>
+    <% } %>
+    <div><span id="details">Misc Details:</span></div><p id="misc_details_box"><%= artist.details %></p>
+</div>
 
 <form id="addsongs" method="POST"
   action="/artists/<%= artist._id %>/songs">
 <label>Song Name:</label>
-<input type="text" name="title">
+<input type="text" name="title" required>
 <label>Album Name:</label>
 <input type="text" name="album_name">
 <label>Date Released:</label>
-<input type="date" name='released'>
+<input type="date" name='released' required>
 <button id="addsongbutton" type="submit">Add Song</button>
 </form>
 
@@ -57,7 +59,7 @@
     </tbody>
   </table>
   <% } else { %>
-    <h2 class="none" >No Artists yet! &#128557; </h2>
+    <h2 class="none" >No Songs yet! &#128557; </h2>
 <% } %>
 
 

@@ -1,14 +1,13 @@
-@media (min-width: 280px) {
+@media (min-width: 280px) and (max-width:1000px) {
 
 body {
   display: flex;
   flex-direction: column;
   background-image: url('https://scontent-dfw5-1.xx.fbcdn.net/v/t31.18172-8/12091323_10153759342049124_614968575717268529_o.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=yeM6F78ZK4IAX-XkKWg&_nc_oc=AQmCaMyJJIrrJZj1vId_9rZf2u01Wj0ZOX45niNf9IfF84nUlkF2H9c6GnW1TURkj7snpz30Ijv5uSphjQeuTQPL&_nc_ht=scontent-dfw5-1.xx&oh=00_AfDLgbvG4zjUX9of-dbmf-9iD4CdAPSX_eJat1XkYdaZ3g&oe=6456B43E');
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  padding: 5vmin;
+  padding: 3vmin;
   font: 3vmin "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -86,7 +85,7 @@ nav > a:hover:not(.active) {
 
 
 a {
-  color: #00B7FF;
+  color: #0362fc;
 }
 
 #idxartist {
@@ -129,6 +128,17 @@ a {
   font-size: medium;
 }
 
+#watchtosignedform {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2vmin;
+  padding: 2vmin;
+  color: whitesmoke;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: medium;
+  align-items: flex-start;
+}
+
 #artdetailtext {
   width: 90%;
   resize: vertical;
@@ -136,6 +146,7 @@ a {
 
 #artistdetail {
   display: grid;
+  grid-template-columns: 90vw;
 }
 
 #artistdetailtitle {
@@ -143,24 +154,26 @@ a {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   justify-self: center;
   font-size: x-large;
+  text-align: center;
 }
 
-#toeditartfrom {
+#toeditartform {
   margin: 1vmin;
   scale: 70%;
   justify-self: center;
 }
 
-#signeddate {
+#allDetails {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
   color: whitesmoke;
   font-size: medium;
-  margin: -2vmin;
-}
-
-#dealsforartist {
-  color: whitesmoke;
-  font-size: medium;
-  margin: -2vmin;
+  background-color: rgba(174, 179, 190, .85);
+  border-radius: 2vmin;
+  padding: 1vmin;
+  max-width: 100%;
 }
 
 #details {
@@ -168,9 +181,37 @@ a {
   font-size: medium;
 }
 
+#misc_details_box {
+  color: whitesmoke;
+  font-size: medium;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  max-height: 30vmin;
+  max-width: 100%;
+}
+
+#addsongs {
+  justify-self: center;
+  color: whitesmoke;
+  display: grid;
+  grid-template-rows: 4;
+  font-size: medium;
+  margin: 2vmin;
+  background-color: rgba(252, 94, 3, .5);
+  padding: 2vmin;
+  border-radius: 2vmin;
+}
+
+#addsongs > *{
+  max-width: 50vw;
+}
+
+#addsongbutton {
+  margin: 2vmin;
+}
+
 #discography {
   color: whitesmoke;
-  background-color: rgba(252, 94, 3, .5);
   padding: 2vmin;
   padding-left: 8vmin;
   padding-right: 8vmin;
@@ -179,22 +220,161 @@ a {
   justify-self: center;
 }
 
-#misc_details {
-  color: white;
+#dealsforartist {
+  margin-bottom: 2vmin;
+}
+
+#dealsforartist > a {
+  color: #6b03fc;
+}
+
+#details {
+  color: orangered;
+  text-decoration: underline;
+}
+
+#editartistdetail {
+  display: flex;
+  flex-direction: column;
+  max-height: 130vmin;
+}
+
+#editform {
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
   font-size: medium;
-  /* background-color: rgba(174, 179, 190, .9); */
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 2vmin;
+  padding: 1vmin;
+  margin: 3vmin;
+}
+
+#currentDatelabel {
+  font-size: small;
+}
+
+#editDetailsBox {
+  resize: vertical;
+}
+
+#idxdeals {
+  display: grid;
 }
 
 #dealtitle {
-  color: #6b03fc; 
+  color: #6b03fc;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  align-self: center;
+  text-align: center; 
+  font-size: x-large;
+}
+
+#adddlpform {
+  justify-self: center;
+  align-self: center;
+  margin: 3vmin;
+  scale: 70%;
+}
+
+#dealsidxtable thead {
+  background-color: #6b03fc;
+}
+
+#dealsidxtable td:nth-child(3) {
+  text-align: center;
+  scale: 80%;
 }
 
 #adddealtitle {
-  color: #6b03fc; 
+  color: #6b03fc;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  align-self: center;
+  text-align: center; 
+  font-size: x-large;
+}
+
+#dealsadd {
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  font-size: medium;
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 2vmin;
+  padding: 1vmin;
+  margin: 3vmin;
+}
+
+#adddealdetails {
+  resize: vertical;
+}
+
+#dealdetail {
+  display: grid;
+  color: whitesmoke;
+  grid-template-columns: 90vw;
+}
+
+#dealdetailtitle {
+  color: #6b03fc;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  align-self: center;
+  text-align: center; 
+  font-size: x-large;
+}
+
+#toeditbutton {
+  justify-self: center;
+  align-self: center;
+  scale: 80%;
+}
+
+#allDealdetails {
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 2vmin;
+  padding: 1.5vmin;
+  margin: 2vmin;
+  max-width: 100%;
+
+}
+
+#dealinfo p {
+  word-wrap: break-word;
+  overflow-y: scroll;
+  height: 30vmin;
+  max-width: 100%;
+}
+
+#editdealdetail {
+  display: grid;
+  justify-content: start;
+}
+
+#dealeditform {
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  font-size: medium;
+  background-color: rgba(174, 179, 190, .9);
+  border-radius: 2vmin;
+  padding: 1vmin;
+  margin: 3vmin;
+}
+
+#dealdetailsbox {
+  resize: vertical;
+  margin-bottom: 2vmin;
 }
 
 #idxwatch {
   display: grid;
+  max-height: 130vmin;
 }
 
 #watchaddartdfrom {
@@ -245,25 +425,484 @@ td:last-child {
   scale: 70%;
 }
 
-#dealsadd {
-  color: white;
-}
-
-#dealdetail {
-  color: whitesmoke;
-}
-
-#editform {
-  color: whitesmoke;
-}
-
-#dealeditform {
-  color: whitesmoke;
-}
-
 .none {
   color: darkred;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
+
+}
+
+@media (min-width: 1001px) {
+
+  body {
+    display: grid;
+    background-image: url('https://scontent-dfw5-2.xx.fbcdn.net/v/t31.18172-8/12087213_10153759342074124_5830885128769760498_o.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=w66Hn2dUDlEAX91OUyQ&_nc_oc=AQkV34pDRvxjUty42NldwDa-2VliiCfU6lMbUfmE4YPAKJ-fHW1FuciDSRTz7Q3hUqoXOqibwArv-YbSnr6tX80s&_nc_ht=scontent-dfw5-2.xx&oh=00_AfBUFb0QqIi42Lko8Saq5nD3oePDBmFihAoV31cO-rI1TQ&oe=645AF03E');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    padding: 3vmin;
+    font: 3vmin "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  
+  .topnav {
+    overflow: hidden;
+    background-color: rgba(174, 179, 190, .4);
+    border-radius: 2vmin;
+    position: relative;
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
+    color: white;
+    padding: 2vmin;
+    text-decoration: none;
+    font-size: 6vmin;
+    display: block;
+  }
+  
+  nav > a:hover:not(.active) {
+    color: whitesmoke;
+  }
+  
+  .topnav > a.active {
+    color: red;
+    cursor: default;
+  }
+  
+  .topnav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .active {
+    background-color: #6bd681;
+    color: white;
+  }
+  
+  #hometxt {
+    color: #b00404;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+  
+  #loginoutnav img {
+    height: 5vmin;
+  }
+  
+  #idxhome {
+    display: grid;
+    height: 80vh;
+  }
+  
+  #homeh1 {
+    color: #b00404;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center;
+    align-self: center;
+    background-color: rgba(174, 179, 190, .4);
+    padding: 2vmin;
+    border-radius: 3vmin;
+    font-size: xx-large;
+  }
+  
+  
+  a {
+    color: #51a9fc;
+  }
+  
+  #idxartist {
+    display: grid;
+  }
+  
+  #addartfromroster {
+    justify-self: left;
+    margin: 3vmin;
+    scale: 90%;
+  }
+
+  #addartbutton {
+    font-style: oblique;
+    color: #fc5e03;
+    background-color: black;
+  }
+  
+  #addartbutton:hover {
+    background-color: white;
+  }
+  #rostertitle {
+    color: #fc5e03;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    font-size: xx-large;
+  }
+  
+  #rosterTH {
+    background-color: #fc5e03;
+  }
+  
+  #artistdetlinkcell:hover {
+    background-color: #fc5e03;
+  }
+
+  #newartist {
+    display: grid;
+  }
+  
+  #addartisttitle {
+    color: #fc5e03;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    font-size: xx-large;
+  }
+  
+  #addartistform {
+    background-color: rgba(174, 179, 190, .4);
+    border-radius: 2vmin;
+    padding: 2vmin;
+    color: whitesmoke;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: medium;
+  }
+  
+  #watchtosignedform {
+    display: flex;
+    flex-direction: column;
+    border-radius: 2vmin;
+    padding: 2vmin;
+    color: whitesmoke;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: medium;
+    align-items: flex-start;
+  }
+  
+  #artdetailtext {
+    width: 90%;
+    resize: vertical;
+  }
+  
+  #artistdetail {
+    display: grid;
+    grid-template-columns: 95vw;
+  }
+  
+  #artistdetailtitle {
+    color: #fc5e03;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    font-size: xx-large;
+    text-align: center;
+  }
+  
+  #toeditartform {
+    margin: 1vmin;
+    scale: 100%;
+    justify-self: left;
+  }
+
+  #toeditartbut {
+    color: #fc5e03;
+    font-style: oblique;
+  }
+
+  #toeditartbut:hover {
+    background-color: black;
+  }
+  
+  #allDetails {
+    justify-self: left;
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .6);
+    border-radius: 2vmin;
+    padding: 1vmin;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  #dealsforartist {
+    margin-bottom: 2vmin;
+  }
+
+  #dealsforartist > a {
+    color: #6b03fc;
+  }
+  
+  #details {
+    color: orangered;
+    text-decoration: underline;
+  }
+  
+  #misc_details_box {
+    color: whitesmoke;
+    font-size: medium;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 30vmin;
+    max-width: 100%;
+  }
+  
+  #addsongs {
+    justify-self: center;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: medium;
+    margin: 2vmin;
+    background-color: rgba(252, 94, 3, .5);
+    padding: 2vmin;
+    border-radius: 2vmin;
+    width: 70vw;
+  }
+  
+  #addsongs > * {
+    width: 80vw;
+    text-align: center;
+  }
+  
+  #addsongbutton {
+    margin: 2vmin;
+    background-color: black;
+    color: #fc5e03;
+  }
+
+  #addsongbutton {
+    margin: 2vmin;
+    background-color: black;
+    color: #fc5e03;
+  }
+
+  #addsongbutton:hover {
+   background-color: #fc5e03;
+    color: black;
+  }
+  
+  #discography {
+    color: whitesmoke;
+    text-shadow: -1px 0 #fc5e03, 0 1px #fc5e03, 1px 0 #fc5e03, 0 -1px #fc5e03;
+    padding: 2vmin;
+    padding-left: 8vmin;
+    padding-right: 8vmin;
+    font-size: x-large;
+    justify-self: center;
+  }
+  
+  #editartistdetail {
+    display: flex;
+    flex-direction: column;
+    max-height: 130vmin;
+  }
+  
+  #editform {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .9);
+    border-radius: 2vmin;
+    padding: 1vmin;
+    margin: 3vmin;
+  }
+  
+  #currentDatelabel {
+    font-size: small;
+  }
+  
+  #editDetailsBox {
+    resize: vertical;
+  }
+  
+  #idxdeals {
+    display: grid;
+  }
+  
+  #dealtitle {
+    color: #6b03fc;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    align-self: center;
+    text-align: center; 
+    font-size: x-large;
+  }
+  
+  #adddlpform {
+    justify-self: center;
+    align-self: center;
+    margin: 3vmin;
+    scale: 70%;
+  }
+  
+  #dealsidxtable thead {
+    background-color: #6b03fc;
+  }
+  
+  #dealsidxtable td:nth-child(3) {
+    text-align: center;
+    scale: 80%;
+  }
+  
+  #adddealtitle {
+    color: #6b03fc;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    align-self: center;
+    text-align: center; 
+    font-size: x-large;
+  }
+  
+  #dealsadd {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .9);
+    border-radius: 2vmin;
+    padding: 1vmin;
+    margin: 3vmin;
+  }
+  
+  #adddealdetails {
+    resize: vertical;
+  }
+  
+  #dealdetail {
+    display: grid;
+    color: whitesmoke;
+    grid-template-columns: 90vw;
+  }
+  
+  #dealdetailtitle {
+    color: #6b03fc;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    align-self: center;
+    text-align: center; 
+    font-size: x-large;
+  }
+  
+  #toeditbutton {
+    justify-self: center;
+    align-self: center;
+    scale: 80%;
+  }
+  
+  #allDealdetails {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .9);
+    border-radius: 2vmin;
+    padding: 1.5vmin;
+    margin: 2vmin;
+    max-width: 100%;
+  
+  }
+  
+  #dealinfo p {
+    word-wrap: break-word;
+    overflow-y: scroll;
+    height: 30vmin;
+    max-width: 100%;
+  }
+  
+  #editdealdetail {
+    display: grid;
+    justify-content: start;
+  }
+  
+  #dealeditform {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .9);
+    border-radius: 2vmin;
+    padding: 1vmin;
+    margin: 3vmin;
+  }
+  
+  #dealdetailsbox {
+    resize: vertical;
+    margin-bottom: 2vmin;
+  }
+  
+  #idxwatch {
+    display: grid;
+    max-height: 130vmin;
+  }
+  
+  #watchaddartdfrom {
+    justify-self: center;
+    margin: 4vmin;
+    scale: 70%
+  }
+  
+  #addartbutton {
+    padding: 1vmin;
+    align-self: center;
+  }
+  
+  #watchtitle {
+    color: #2bba00;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    justify-self: center;
+  }
+  
+  .table{
+    width: 100%;
+  }
+  
+  .table, th, td {
+    color: white;
+    background-color: rgba(174, 179, 190, .6);
+    border-collapse: collapse;
+    border: .5vmin solid;
+  }
+  
+  #watchTH {
+    background-color: #2bba00;
+  }
+  
+  td:nth-child(2) {
+    text-align: center;
+  }
+
+  td:nth-child(3) {
+    text-align: center;
+  }
+  
+  td:last-child {
+    width: 15%;
+    text-align: center;
+  }
+  
+  .delete-button {
+    scale: 90%;
+  }
+  
+  #artdtlbutton {
+    scale: 100%;
+  }
+  
+  .none {
+    color: darkred;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  }
+  
 
 
 }

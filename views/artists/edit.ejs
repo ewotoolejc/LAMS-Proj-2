@@ -7,12 +7,13 @@
 <!-- <label>Signed?:</label> -->
 <% if (artist.signed === true) { %>
 <label>Signed On:</label>
-<label>(Current is: <%= artist.signed_on.toDateString() %>) </label>
+<label><span id="currentDatelabel">(Current is: <%= artist.signed_on.toDateString() %>)</span></label>
 <input type="date" name="signed_on" required>
 <% } %>
 <label>Details:</label>
-<input type="text" size="50" name="details" value="<%= artist.details %>">
-<button type="submit">Update Artist</button>
+<textarea id="editDetailsBox" name="details"><%= artist.details %></textarea><br>
+<button id="submitEditbutton" type="submit">Update Artist</button>
 </form>
+
 </main>
 <%- include('../partials/footer') %>

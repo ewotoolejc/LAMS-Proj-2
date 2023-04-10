@@ -3,12 +3,12 @@
 
 <h1 id="dealtitle">Deals & Partnerships</h1>
 
-<form action="/deals/new">
+<form id="adddlpform" action="/deals/new">
   <input id="adddlpgbutton" type="submit" value="Add a New Deal or Partnership" />
 </form>
 
 <% if (deals.length) { %>
-<table class="table">
+<table class="table" id="dealsidxtable" >
     <thead>
       <tr>
         <th>Deal</th>

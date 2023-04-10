@@ -7,6 +7,7 @@ module.exports = {
 
 async function create(req, res) {
     const artist = await Artist.findById(req.params.id);
+    req.body.released += 'T00:00';
     artist.songs.push(req.body);
     try {
         await artist.save();
