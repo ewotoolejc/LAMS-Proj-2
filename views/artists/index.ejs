@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
 <main id="idxartist">
 
+  <div id="allonelineroster">
 <form id="addartfromroster" action="/artists/new">
   <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
 </form>
 
 <h1 id="rostertitle">Artist Roster</h1>
+</div>
 <% if (artists.length) { %>
 <table class="table">
     <thead>
