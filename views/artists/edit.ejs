@@ -4,10 +4,8 @@
 <form id ="editform" action="/artists/<%= artist._id %>?_method=PUT" method="POST" autocomplete="off">
 <label>Artist Name:</label>
 <input type="text" name="name" value="<%= artist.name %>">
-<!-- <label>Signed?:</label> -->
 <% if (artist.signed === true) { %>
-<label>Signed On:</label>
-<label><span id="currentDatelabel">(Current is: <%= artist.signed_on.toDateString() %>)</span></label>
+<label>Signed On:<br><span id="currentDatelabel">(Current is: <%= artist.signed_on.toDateString() %>)</span></label>
 <input type="date" name="signed_on" required>
 <% } %>
 <label>Details:</label>

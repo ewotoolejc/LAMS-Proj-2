@@ -1,9 +1,12 @@
 <%- include('../partials/header') %>
 <main id="artistdetail">
-
-<h1 id="artistdetailtitle"><%= artist.name %> Details</h1>
-<form id="toeditartform" action="/artists/<%= artist._id %>/edit">
-  <button id="toeditartbut" type="submit">Edit Artist Info</button></form>
+<div id="onelineart"></div>
+  <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>
+  <% if (user) { %>
+  <form id="toeditartform" action="/artists/<%= artist._id %>/edit">
+    <button id="toeditartbut" type="submit">Edit Artist Info</button></form>
+    <% } %>
+</div>
 <div id="allDetails">
   <% if (artist.signed === true) { %>
   <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
@@ -22,7 +25,7 @@
     <% } %>
     <div><span id="details">Misc Details:</span></div><p id="misc_details_box"><%= artist.details %></p>
 </div>
-
+<% if (user) { %>
 <form id="addsongs" method="POST"
   action="/artists/<%= artist._id %>/songs">
 <label>Song Name:</label>
@@ -33,7 +36,7 @@
 <input type="date" name='released' required>
 <button id="addsongbutton" type="submit">Add Song</button>
 </form>
-
+<% } %>
 <h2 id="discography" >Discography</h2>
 <% if (artist.songs.length) { %>
   <table class='table' id="songstable">
@@ -51,9 +54,9 @@
           <td><%= s.title %></td>
           <td><%= s.album_name %></td>
           <td><%= s.released.toDateString() %></td>
-          <td><form action="/songs/<%= s._id %>?_method=DELETE" class="delete-button" method="POST">
+          <td><% if (user) { %><form action="/songs/<%= s._id %>?_method=DELETE" class="delete-button" method="POST">
             <button type="submit">Delete Song</button>
-            </form></td>
+            </form><% } %></td>
         </tr>
       <% }); %>
     </tbody>

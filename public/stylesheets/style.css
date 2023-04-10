@@ -153,6 +153,10 @@ a {
   grid-template-columns: 90vw;
 }
 
+#onelineart {
+  display: grid;
+}
+
 #artistdetailtitle {
   color: #fc5e03;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
@@ -320,6 +324,9 @@ a {
   color: whitesmoke;
   grid-template-columns: 90vw;
 }
+#onelinewatch {
+  display: grid;
+}
 
 #dealdetailtitle {
   color: #6b03fc;
@@ -469,7 +476,7 @@ td:last-child {
     color: white;
     padding: 2vmin;
     text-decoration: none;
-    font-size: 6vmin;
+    font-size: 3vmin;
     display: block;
   }
   
@@ -532,9 +539,11 @@ td:last-child {
   
   #idxartist {
     display: grid;
+    grid-template-rows: 15vmin 1fr;
   }
   
   #allonelineroster {
+    grid-row: 1/2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -559,8 +568,13 @@ td:last-child {
     color: #fc5e03;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
+    position: absolute;
   }
   
+  #artisttable {
+    grid-row: 2/3;
+  }
+
   #rosterTH {
     background-color: #fc5e03;
   }
@@ -607,21 +621,25 @@ td:last-child {
   
   #artistdetail {
     display: grid;
-    grid-template-columns: 95vw;
+    grid-template-columns: 200vmin;
   }
   
+  #onelineart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   #artistdetailtitle {
     color: #fc5e03;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
-    font-size: xx-large;
     text-align: center;
   }
   
   #toeditartform {
     margin: 1vmin;
-    scale: 100%;
     justify-self: left;
+    align-self: start;
   }
 
   #toeditartbut {
@@ -642,7 +660,7 @@ td:last-child {
     background-color: rgba(174, 179, 190, .6);
     border-radius: 2vmin;
     padding: 1vmin;
-    width: 90%;
+    width: 75%;
     max-width: 100%;
   }
 
@@ -724,15 +742,37 @@ td:last-child {
     justify-self: left;
     display: grid;
     grid-template-columns: 1fr;
-   
     color: whitesmoke;
     font-size: medium;
     background-color: rgba(174, 179, 190, .9);
     border-radius: 2vmin;
     padding: 1vmin;
     margin: 3vmin;
+    min-width: 80vmin;
   }
   
+  #editform > * {
+    margin: 1vmin;
+  }
+
+  #editform input {
+    max-width: 50%;
+  }
+
+  #editform button {
+    max-width: 50%;
+    background-color: #fc5e03;
+    color: #2bba00;
+    font-size: large;
+    font-style: oblique;
+    font-weight: bold;
+  }
+
+  #editform button:hover {
+    background-color: #2bba00;
+    color: #fc5e03;
+  }
+
   #currentDatelabel {
     font-size: small;
   }
@@ -809,45 +849,93 @@ td:last-child {
     border-radius: 2vmin;
     padding: 1vmin;
     margin: 3vmin;
+    max-width: 50%;
   }
   
   #adddealdetails {
     resize: vertical;
   }
+
+  #dealsadd button {
+    max-width: 50%;
+    font-size: large;
+    font-style: oblique;
+    background-color:#6b03fc;
+    color: whitesmoke;
+  }
   
   #dealdetail {
     display: grid;
     color: whitesmoke;
-    grid-template-columns: 90vw;
+    grid-template-rows: 15vmin, 1fr;
   }
   
+  #onelinewatch {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   #dealdetailtitle {
+    grid-column: 1/2;
     color: #6b03fc;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
     align-self: center;
-    text-align: center; 
-    font-size: x-large;
+    text-align: center;
   }
   
   #toeditbutton {
-    justify-self: center;
+    grid-column: 1/2;
+    justify-self: left;
     align-self: center;
-    scale: 80%;
+  }
+
+  #toeditbutton button {
+    scale: 120%;
+    background-color:#6b03fc;
+    color: whitesmoke;
+    font-style: oblique;
+  }
+
+  #toeditbutton button:hover {
+    background-color:whitesmoke;
+    color: #6b03fc;
   }
   
   #allDealdetails {
+    grid-row: 2/3;
     display: flex;
     flex-direction: column;
-    font-size: medium;
+    font-size: large;
     background-color: rgba(174, 179, 190, .9);
     border-radius: 2vmin;
     padding: 1.5vmin;
     margin: 2vmin;
     max-width: 100%;
-  
   }
   
+  #allDealdetails a {
+    color:rgba(252, 94, 3, 1);
+    font-weight: bold;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  }
+
+  #allDealdetails a:hover {
+    color:rgba(43, 186, 0, 1)
+  }
+
+  #allDealdetails button {
+    background-color:#6b03fc;
+    color: whitesmoke;
+    font-style: oblique;
+  }
+
+  #allDealdetails button:hover {
+    background-color:whitesmoke;
+    color: #6b03fc;
+  }
+
   #dealinfo p {
     word-wrap: break-word;
     overflow-y: scroll;
@@ -857,6 +945,7 @@ td:last-child {
   
   #editdealdetail {
     display: grid;
+    grid-template-columns: 1fr;
     justify-content: start;
   }
   
@@ -869,15 +958,30 @@ td:last-child {
     border-radius: 2vmin;
     padding: 1vmin;
     margin: 3vmin;
+    width: 50%;
+    max-width: 100%;
   }
   
   #dealdetailsbox {
     resize: vertical;
     margin-bottom: 2vmin;
   }
+
+  #dealeditform button {
+    width: 50%;
+    background-color:#6b03fc;
+    color: whitesmoke;
+    font-style: oblique;
+  }
   
+  #dealeditform button:hover {
+    background-color:whitesmoke;
+    color: #6b03fc;
+  }
+
   #idxwatch {
     display: grid;
+    grid-template-rows: 15vmin 1fr;
   }
   
   #wtchsameline {
@@ -901,8 +1005,13 @@ td:last-child {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
     text-align: center;
+    position: absolute;
   }
-  
+
+  #watchtable {
+    grid-row: 2/3;
+  }
+
   #watchTH {
     background-color: rgba(43, 186, 0, .5);
   }

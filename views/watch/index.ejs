@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
 <main id="idxwatch">
 <div id="wtchsameline">
+  <% if (user) { %>
   <form id="watchaddartdform" action="/artists/new">
   <input id="addartbutton" type="submit" value="Add New Artist to Watch" />
 </form>
+<% } %>
 <h1 id="watchtitle">Artist Watch List</h1>
 </div>
 <% if (artists.length) { %>
-<table class="table">
+<table id="watchtable" class="table">
     <thead>
       <tr id="watchTH">
         <th>Name</th>
@@ -23,9 +25,9 @@
           <td id="watchartdtl"><form action="/artists/<%= a._id %>">
             <button type="submit" id="artdtlbutton"><%= a.name %> Details</button>
           </form></td>
-          <td> <form action="/artists/<%= a.id %>?_method=DELETE"
+          <td><% if (user) { %><form action="/artists/<%= a.id %>?_method=DELETE"
             class="delete-button" method="POST">
-            <button type="submit">Delete Watch Artist</button></form></td>
+            <button type="submit">Delete Watch Artist</button></form><% } %></td>
         </tr>
         </tr>
       <% }}); %>

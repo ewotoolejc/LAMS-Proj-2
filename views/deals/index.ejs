@@ -2,11 +2,11 @@
 <main id="idxdeals">
 
 <h1 id="dealtitle">Deals & Partnerships</h1>
-
+<% if (user) { %>
 <form id="adddlpform" action="/deals/new">
   <input id="adddlpgbutton" type="submit" value="Add a New Deal or Partnership" />
 </form>
-
+<% } %>
 <% if (deals.length) { %>
 <table class="table" id="dealsidxtable" >
     <thead>
@@ -26,9 +26,9 @@
             `${a.name}`
             ).join(', ') %></td>
           <td><form action="/deals/<%= d._id %>"><button type="submit" id="dldtlbutton"><% d.name %> Details</button></form></td>
-          <td><form action="/deals/<%= d._id %>?_method=DELETE"
+          <td><% if (user) { %><form action="/deals/<%= d._id %>?_method=DELETE"
             class="delete-button" method="POST">
-            <button type="submit">Delete Deal</button></form></td>
+            <button type="submit">Delete Deal</button></form><% } %></td>
         </tr>
      <% }); %>
     </tbody>

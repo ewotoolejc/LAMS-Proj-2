@@ -1,15 +1,18 @@
 <%- include('../partials/header') %>
 <main id="dealdetail">
-
+<div id="onelinewatch">
 <h1 id="dealdetailtitle"><%= deal.name %> Details</h1>
-
+<% if (user) { %>
 <form id="toeditbutton" action="/deals/<%= deal._id %>/edit">
     <button type="submit">Edit Deal/Partnership</button></form>
+</div>
+<% } %>
 <div id="allDealdetails">
     <div id="artistsondeal"><p>Artists on Deal/Partnership:</p><%- deal.artists.map(a =>
         `<p><a href="/artists/${a._id}">${a.name}</a></p>`
         ).join('') %></div>
-    <form id ="addartisttodeal" action="/deals/<%= deal._id %>/artists?_method=PUT" method="POST" autocomplete="off">
+        <% if (user) { %>
+        <form id ="addartisttodeal" action="/deals/<%= deal._id %>/artists?_method=PUT" method="POST" autocomplete="off">
         <label>Add another artist?:</label>
         <select name='artistId' required>
         <option></option>
@@ -20,6 +23,7 @@
         </select>
         <button type="submit" >Add Additional Artist</button>    
     </form>
+    <% } %>
     <div id="dealinfo"><p>Deal/Partnership Info:<br><%= deal.info %></p></div>
 </div>
 
