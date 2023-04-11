@@ -621,7 +621,7 @@ td:last-child {
   
   #artistdetail {
     display: grid;
-    grid-template-columns: 200vmin;
+    grid-template-columns: 1fr;
   }
   
   #onelineart {
@@ -639,7 +639,7 @@ td:last-child {
   #toeditartform {
     margin: 1vmin;
     justify-self: left;
-    align-self: start;
+    align-self: center;
   }
 
   #toeditartbut {
@@ -653,8 +653,8 @@ td:last-child {
   
   #allDetails {
     justify-self: left;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     color: whitesmoke;
     font-size: medium;
     background-color: rgba(174, 179, 190, .6);
@@ -662,6 +662,10 @@ td:last-child {
     padding: 1vmin;
     width: 75%;
     max-width: 100%;
+  }
+
+  #allDetails div {
+    max-width: 50%;
   }
 
   #dealsforartist {
@@ -694,7 +698,7 @@ td:last-child {
     align-items: center;
     font-size: medium;
     margin: 2vmin;
-    background-color: rgba(252, 94, 3, .5);
+    background-color: rgba(252, 94, 3, .7);
     padding: 2vmin;
     border-radius: 2vmin;
     width: 70vw;
@@ -867,17 +871,16 @@ td:last-child {
   #dealdetail {
     display: grid;
     color: whitesmoke;
-    grid-template-rows: 15vmin, 1fr;
+    grid-template-columns: 1fr;
   }
   
-  #onelinewatch {
-    grid-row: 1/2;
+  #onelinedealdet {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
   #dealdetailtitle {
-    grid-column: 1/2;
+    grid-column: 2/3;
     color: #6b03fc;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
@@ -892,10 +895,10 @@ td:last-child {
   }
 
   #toeditbutton button {
-    scale: 120%;
     background-color:#6b03fc;
     color: whitesmoke;
     font-style: oblique;
+    font-size: large;
   }
 
   #toeditbutton button:hover {
@@ -905,14 +908,24 @@ td:last-child {
   
   #allDealdetails {
     grid-row: 2/3;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     font-size: large;
     background-color: rgba(174, 179, 190, .9);
     border-radius: 2vmin;
     padding: 1.5vmin;
     margin: 2vmin;
+    width: 50%;
     max-width: 100%;
+  }
+
+  #allDealdetails div {
+    max-width: 50%;
+  }
+
+  #allDealdetails form {
+   display: grid;
+   grid-template-columns: 40vmin;
   }
   
   #allDealdetails a {

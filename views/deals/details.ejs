@@ -1,12 +1,14 @@
 <%- include('../partials/header') %>
 <main id="dealdetail">
-<div id="onelinewatch">
-<h1 id="dealdetailtitle"><%= deal.name %> Details</h1>
-<% if (user) { %>
-<form id="toeditbutton" action="/deals/<%= deal._id %>/edit">
-    <button type="submit">Edit Deal/Partnership</button></form>
+<div id="onelinedealdet">
+    <% if (user) { %>
+    <form id="toeditbutton" action="/deals/<%= deal._id %>/edit">
+        <button type="submit">Edit Deal/Partnership</button>
+    </form>
+    <% } %>
+    <h1 id="dealdetailtitle"><%= deal.name %> Details</h1>
 </div>
-<% } %>
+
 <div id="allDealdetails">
     <div id="artistsondeal"><p>Artists on Deal/Partnership:</p><%- deal.artists.map(a =>
         `<p><a href="/artists/${a._id}">${a.name}</a></p>`
@@ -15,7 +17,7 @@
         <form id ="addartisttodeal" action="/deals/<%= deal._id %>/artists?_method=PUT" method="POST" autocomplete="off">
         <label>Add another artist?:</label>
         <select name='artistId' required>
-        <option></option>
+        <option value=" "></option>
         <% artists.forEach(function(a) { %>
         <% if (a.signed === true && !a.deals.includes(deal._id)) { %>
         <option value="<%= a._id %>"><%= a.name %></option>

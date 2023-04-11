@@ -41,11 +41,11 @@ async function update(req, res) {
 // WORKS FOR ONE BELOW
 async function create(req, res) {
     try {
+        const artist = await Artist.findById(req.body.artistId);
         const deal = await Deal.create(req.body);
         if (req.body.artistId = ' ') {
             res.redirect(`/deals/${deal._id}`);
-        };
-        const artist = await Artist.findById(req.body.artistId);        
+        };        
         deal.artists.push(artist._id);
         await deal.save();
         artist.deals.push(deal._id);

@@ -1,12 +1,14 @@
 <%- include('../partials/header') %>
 <main id="artistdetail">
-<div id="onelineart"></div>
-  <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>
+
+  <div id="onelineart">
   <% if (user) { %>
   <form id="toeditartform" action="/artists/<%= artist._id %>/edit">
     <button id="toeditartbut" type="submit">Edit Artist Info</button></form>
     <% } %>
+  <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>  
 </div>
+
 <div id="allDetails">
   <% if (artist.signed === true) { %>
   <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
