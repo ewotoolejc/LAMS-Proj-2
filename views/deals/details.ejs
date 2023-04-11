@@ -16,7 +16,7 @@
         <% if (user) { %>
         <form id ="addartisttodeal" action="/deals/<%= deal._id %>/artists?_method=PUT" method="POST" autocomplete="off">
         <label>Add another artist?:</label>
-        <select name='artistId' required>
+        <select name='artistId' required multiple>
         <option value=" "></option>
         <% artists.forEach(function(a) { %>
         <% if (a.signed === true && !a.deals.includes(deal._id)) { %>

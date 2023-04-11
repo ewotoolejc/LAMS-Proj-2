@@ -10,8 +10,8 @@ action="/deals/">
 <label>Details:</label>
 <textarea id="adddealdetails" type="text" name="info"></textarea><br>
 <label>Artists attached to:</label>
-<select name='artistId'>
-<option value=" "></option>
+<select name='artistId' multiple>
+<option value=" " selected></option>
 <% artists.forEach(function(a) { %>
 <% if (a.signed === true) { %>
 <option value="<%= a._id %>"> <%= a.name %></option>

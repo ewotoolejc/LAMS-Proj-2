@@ -39,23 +39,23 @@ async function update(req, res) {
 };
 
 // WORKS FOR ONE BELOW
-async function create(req, res) {
-    try {
-        const artist = await Artist.findById(req.body.artistId);
-        const deal = await Deal.create(req.body);
-        if (req.body.artistId = ' ') {
-            res.redirect(`/deals/${deal._id}`);
-        };        
-        deal.artists.push(artist._id);
-        await deal.save();
-        artist.deals.push(deal._id);
-        await artist.save();
-        res.redirect(`/deals/${deal._id}`);
-     } catch (err) {
-       console.log(err);
-       res.render('deals/new', { errorMsg: err.message });
-     }
-};
+// async function create(req, res) {
+//     try {
+//         const artist = await Artist.findById(req.body.artistId);
+//         const deal = await Deal.create(req.body);
+//         if (req.body.artistId = ' ') {
+//             res.redirect(`/deals/${deal._id}`);
+//         };        
+//         deal.artists.push(artist._id);
+//         await deal.save();
+//         artist.deals.push(deal._id);
+//         await artist.save();
+//         res.redirect(`/deals/${deal._id}`);
+//      } catch (err) {
+//        console.log(err);
+//        res.render('deals/new', { errorMsg: err.message });
+//      }
+// };
 
 async function deleteDeal(req,res) {
     const deal = await Deal.findById(req.params.id);
@@ -63,24 +63,20 @@ async function deleteDeal(req,res) {
     res.redirect('/deals');
 };
 
-// async function create(req, res) {
-//     try {
-//         const artists = []; 
-//         await Artist.find(req.body.artistId.forEach(function(aid) {
-//             artiststodeal.push(aid);
-//             artists.push(aid);
-//         } ));
-//         const deal = await Deal.create(req.body);
-//         deal.artists.push(artists);
-//         dealdest.push(deal);
-//         saveDealtoArt(); 
-//         await deal.save();
-//         res.redirect(`/deals/${deal._id}`);
-//      } catch (err) {
-//        console.log(err);
-//        res.render('deals/new', { errorMsg: err.message });
-//      }
-// };
+async function create(req, res) {
+    console.log(req.body.artistId);   
+    try {
+        const deal = await Deal.create(req.body);
+        if (req.body.artistId = ' ') {
+            res.redirect(`/deals/${deal._id}`);
+            };        
+        await Deal.updateOne({ _id: deal._id }, { $push: { artists: { $each: req.body.artistId } } });
+        res.redirect(`/deals/${deal._id}`);
+     } catch (err) {
+       console.log(err);
+       res.render('deals/new', { errorMsg: err.message });
+     }
+};
 
 // let artiststodeal = [];
 // let dealdest;
