@@ -7,6 +7,7 @@
   <input id="adddlpgbutton" type="submit" value="Add a New Deal or Partnership" />
 </form>
 <% } %>
+
 <% if (deals.length) { %>
 <table class="table" id="dealsidxtable" >
     <thead>
@@ -19,6 +20,13 @@
       </tr>
     </thead>
     <tbody>
+      <% function compareNameDl(dla, dlb) { %>
+        <% if (dla.name < dlb.name) { %>
+          <% return -1; } %>
+          <% if (dla.name > dlb.name) { %>
+          <% return 1;} %>
+          <% return 0;}; %>
+      <% deals.sort(compareNameDl) %>
       <% deals.forEach(function(d) { %>
         <tr>
           <td><%= d.name %></td>

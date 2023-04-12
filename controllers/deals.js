@@ -38,8 +38,42 @@ async function update(req, res) {
     res.redirect(`/deals/${deal._id}`);
 };
 
+async function deleteDeal(req,res) {
+    const deal = await Deal.findById(req.params.id);
+    await Deal.deleteOne(deal);
+    res.redirect('/deals');
+};
+
+// WORKS for multiples!
+async function create(req, res) {  
+    req.body.user = req.user._id; 
+    try {
+        const deal = await Deal.create(req.body);
+        if (req.body.artistId === '') {
+        res.redirect(`/deals/${deal._id}`);
+        };
+        if (Array.isArray(req.body.artistId) === true) {
+        await Deal.updateOne({ _id: deal._id }, { $push: { artists: { $each: req.body.artistId } } });
+        await Artist.updateMany({ _id: req.body.artistId }, { $push: { deals: deal._id } } );
+        res.redirect(`/deals/${deal._id}`);
+        };
+        if (Array.isArray(req.body.artistId) === false) {
+        const artist = await Artist.findById(req.body.artistId);
+        deal.artists.push(artist._id);
+        await deal.save();
+        artist.deals.push(deal._id);
+        await artist.save();
+        res.redirect(`/deals/${deal._id}`);
+        };
+     } catch (err) {
+       console.log(err);
+       res.render('deals/new', { errorMsg: err.message });
+     }
+};
+
 // WORKS FOR ONE BELOW
 // async function create(req, res) {
+//     req.body.user = req.user._id;
 //     try {
 //         const artist = await Artist.findById(req.body.artistId);
 //         const deal = await Deal.create(req.body);
@@ -56,34 +90,3 @@ async function update(req, res) {
 //        res.render('deals/new', { errorMsg: err.message });
 //      }
 // };
-
-async function deleteDeal(req,res) {
-    const deal = await Deal.findById(req.params.id);
-    await Deal.deleteOne(deal);
-    res.redirect('/deals');
-};
-
-async function create(req, res) {
-    console.log(req.body.artistId);   
-    try {
-        const deal = await Deal.create(req.body);
-        if (req.body.artistId = ' ') {
-            res.redirect(`/deals/${deal._id}`);
-            };        
-        await Deal.updateOne({ _id: deal._id }, { $push: { artists: { $each: req.body.artistId } } });
-        res.redirect(`/deals/${deal._id}`);
-     } catch (err) {
-       console.log(err);
-       res.render('deals/new', { errorMsg: err.message });
-     }
-};
-
-// let artiststodeal = [];
-// let dealdest;
-
-
-// async function saveDealtoArt() {
-//     artiststodeal.forEach(function(aid) {
-//         aid.deals.push(dealdest);
-//         await aid.save();
-// })};

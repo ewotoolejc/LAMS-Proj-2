@@ -7,9 +7,21 @@
     <button id="toeditartbut" type="submit">Edit Artist Info</button></form>
     <% } %>
   <h1 id="artistdetailtitle"><%= artist.name %> Details</h1>  
+  <% if (artist.signed === true) { %>
+  <form action="/artists" class="go-back">
+    <button id="rosterbackhome">Back to Roster</button>
+  </form>
+  <% } %>
+  <% if (artist.signed === false) { %>
+    <form action="/watch" class="go-back">
+      <button id="wtchbackhome">Back to Watch</button>
+    </form>
+  <% } %>
 </div>
 
+<!-- <div id="allelspasttitle"> -->
 <div id="allDetails">
+  <img id="artistpicdetail" src="<%= artist.picture %>" alt="<%= artist.name %> picture">
   <% if (artist.signed === true) { %>
   <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
   <div id="dealsforartist"><p>Deals/Partnerships for Artist:</p><%- artist.deals.map(d =>
@@ -25,8 +37,10 @@
       <button type="submit">Yes!</button>
     </form>
     <% } %>
-    <div><span id="details">Misc Details:</span></div><p id="misc_details_box"><%= artist.details %></p>
+    <div><span id="details">Misc Details:</span></div>
+    <p id="misc_details_box"><%= artist.details %></p>
 </div>
+
 <% if (user) { %>
 <form id="addsongs" method="POST"
   action="/artists/<%= artist._id %>/songs">
@@ -36,6 +50,8 @@
 <input type="text" name="album_name">
 <label>Date Released:</label>
 <input type="date" name='released' required>
+<label>Song Link</label>
+<input type="text" name="songlink" placeholder="Paste an Embed link">
 <button id="addsongbutton" type="submit">Add Song</button>
 </form>
 <% } %>
@@ -47,6 +63,7 @@
         <th>Song Name</th>
         <th>Album Name</th>
         <th>Date Released</th>
+        <th>Song Link</th>
         <th></th>
       </tr>
     </thead>
@@ -56,6 +73,7 @@
           <td><%= s.title %></td>
           <td><%= s.album_name %></td>
           <td><%= s.released.toDateString() %></td>
+          <td><%- s.songlink %></td>
           <td><% if (user) { %><form action="/songs/<%= s._id %>?_method=DELETE" class="delete-button" method="POST">
             <button type="submit">Delete Song</button>
             </form><% } %></td>
@@ -66,7 +84,7 @@
   <% } else { %>
     <h2 class="none" >No Songs yet! &#128557; </h2>
 <% } %>
-
+</div>
 
 </main>
 <%- include('../partials/footer') %>

@@ -7,6 +7,9 @@
     </form>
     <% } %>
     <h1 id="dealdetailtitle"><%= deal.name %> Details</h1>
+    <form action="/deals" class="go-back">
+    <button id="dealbackhome">Back to Deals</button>
+    </form>
 </div>
 
 <div id="allDealdetails">
@@ -15,7 +18,7 @@
         ).join('') %></div>
         <% if (user) { %>
         <form id ="addartisttodeal" action="/deals/<%= deal._id %>/artists?_method=PUT" method="POST" autocomplete="off">
-        <label>Add another artist?:</label>
+        <label>Add more artists?:</label>
         <select name='artistId' required multiple>
         <option value=" "></option>
         <% artists.forEach(function(a) { %>

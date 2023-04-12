@@ -1,5 +1,6 @@
 const Artist = require('../models/artist');
 const Deal = require('../models/deal');
+const User = require('../models/user');
 
 module.exports = {
     index,
@@ -18,7 +19,7 @@ async function index(req, res) {
     res.render('artists/index', { title: 'Roster', artists })
 };
 
-function newArtist(req, res) {
+async function newArtist(req, res) {
     res.render('artists/new', { title: 'Add New Artist' })
 };
 
@@ -52,25 +53,33 @@ async function updateToSigned(req, res) {
 };
 
 async function addArtisttoDeal(req, res) {
-    const artist = await Artist.findById(req.body.artistId);
     const deal = await Deal.findById(req.params.id);
+    if (Array.isArray(req.body.artistId) === true) {
+    await Deal.updateOne({ _id: deal._id }, { $push: { artists: { $each: req.body.artistId } } });
+    await Artist.updateMany({ _id: req.body.artistId }, { $push: { deals: deal._id } } );
+    res.redirect(`/deals/${deal._id}`);
+    }; 
+    if (Array.isArray(req.body.artistId) === false) {
+    const artist = await Artist.findById(req.body.artistId);
     deal.artists.push(req.body.artistId);
     await deal.save();
     artist.deals.push(deal._id);
     await artist.save();
     res.redirect(`/deals/${deal._id}`);
+    };
 };
 
 async function create(req, res) {
-    req.body.signed = !!req.body.signed
+    req.body.signed = !!req.body.signed;
+    req.body.user = req.user._id;
     try {
         const artist = await Artist.create(req.body);
+
         if (artist.signed === false) {
             res.redirect('/watch');
             };
         res.redirect(`/artists/${artist._id}`)
      } catch (err) {
-       // Typically some sort of validation error
        console.log(err);
        res.render('artists/new', { errorMsg: err.message });
      }

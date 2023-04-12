@@ -9,6 +9,14 @@ const dealSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: "Artist"
     }],
+    user: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+}],
+user: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+}],
 }, {
     timestamps: true,
 });

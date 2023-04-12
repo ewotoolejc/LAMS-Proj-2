@@ -5,16 +5,9 @@ function linksDisplay() {
     } else {
       x.style.display = "block";
     }
-  }
+}
 
-
-
-// Adding more than one artist to deal at time of creation
-// function findallnames(d) {
-//     const names = [];
-//     d.forEach(function(id) {
-//       const obj = findByID(id);
-//       Names.push(obj.name);   
-//     })
-// return names;
-// }
+// Back button
+// document.getElementById("dealbackhome").addEventListener("click", () => {
+//   history.back();
+// });

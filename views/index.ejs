@@ -1,5 +1,10 @@
 <%- include('./partials/header') %>
 <main id="idxhome">
+
+<% if (user) { %>
+<p id="welcomeuser" > Welcome back to your LAMS, <%= user.name %> at <%= user.labelname %>!</p>
+<% } %>
+
 <p id="homeh1">LAMS: <br>THE Label Artist Management System</p>
 </main>
 <%- include('./partials/footer') %>
