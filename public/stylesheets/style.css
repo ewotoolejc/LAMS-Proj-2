@@ -109,7 +109,12 @@ a {
 #addartfromroster {
   justify-self: center;
   margin: 4vmin;
-  scale: 70%
+  scale: 70%;
+}
+
+#addartbutton {
+  background-color: #fc5e03;
+  color: whitesmoke;
 }
 
 #rostertitle {
@@ -125,6 +130,10 @@ a {
 
 #newartist {
   display: grid;
+}
+
+#newartist button {
+  background-color: #fc5e03;
 }
 
 #allonelineroster {
@@ -160,6 +169,7 @@ a {
 #artdetailtext {
   width: 90%;
   resize: vertical;
+  white-space: pre-wrap;
 }
 
 #artistdetail {
@@ -183,6 +193,10 @@ a {
   margin: 1vmin;
   scale: 70%;
   justify-self: center;
+}
+
+#artistdetail button {
+  background-color: #fc5e03;
 }
 
 #allDetails {
@@ -214,6 +228,7 @@ a {
   color: whitesmoke;
   font-size: medium;
   word-wrap: break-word;
+  white-space: pre-wrap;
   overflow-y: scroll;
   max-height: 30vmin;
   max-width: 100%;
@@ -231,7 +246,7 @@ a {
   border-radius: 2vmin;
 }
 
-#addsongs > *{
+#addsongs > * {
   max-width: 50vw;
 }
 
@@ -253,16 +268,10 @@ a {
 justify-self: center;
 table-layout: fixed;
 }
-/* 
-#songstable thead td {
-  width: 5vw;
-  overflow: hidden;
-  display: inline-block;
-  white-space: nowrap;
-} */
 
-#songstable td:nth-child(4) {
-  /* scale: 50%; */
+#songstable iframe {
+  max-width: 15vmin;
+  max-height: 16vmin;
   overflow: scroll;
 }
 
@@ -285,6 +294,10 @@ table-layout: fixed;
   max-height: 130vmin;
 }
 
+#editartistdetail button {
+  background-color: #fc5e03;
+}
+
 #editform {
   display: flex;
   flex-direction: column;
@@ -302,6 +315,7 @@ table-layout: fixed;
 
 #editDetailsBox {
   resize: vertical;
+  white-space: pre-wrap;
 }
 
 #idxdeals {
@@ -324,6 +338,11 @@ table-layout: fixed;
   scale: 70%;
 }
 
+#adddlpgbutton {
+  background-color: #6b03fc;
+  color: whitesmoke;
+}
+
 #dealsidxtable thead {
   background-color: #6b03fc;
 }
@@ -331,6 +350,11 @@ table-layout: fixed;
 #dealsidxtable td:nth-child(3) {
   text-align: center;
   scale: 80%;
+}
+
+#dldtlbutton {
+  background-color: #6b03fc;
+  color: whitesmoke;
 }
 
 #adddealtitle {
@@ -357,10 +381,20 @@ table-layout: fixed;
   resize: vertical;
 }
 
+#newdeal button {
+  background-color: #6b03fc;
+  color: whitesmoke;
+}
+
 #dealdetail {
   display: grid;
   color: whitesmoke;
   grid-template-columns: 90vw;
+}
+
+#dealdetail button {
+  background-color: #6b03fc;
+  color: whitesmoke;
 }
 
 #onelinedealdet {
@@ -524,7 +558,7 @@ table-layout: fixed;
   background-color: #2bba00;
 }
 
-td:nth-child(2) {
+td {
   text-align: center;
 }
 
@@ -536,8 +570,15 @@ td:last-child {
   scale: 70%;
 }
 
+.delete-button button {
+  background-color: #b00404;
+  color: whitesmoke;
+}
+
 #artdtlbutton {
   scale: 70%;
+  background-color: #fc5e03;
+  
 }
 
 .go-back {
@@ -874,6 +915,7 @@ td:last-child {
     color: whitesmoke;
     font-size: medium;
     word-wrap: break-word;
+    white-space: pre-wrap;
     overflow-y: scroll;
     max-height: 30vmin;
     max-width: 100%;
@@ -1152,6 +1194,7 @@ td:last-child {
   #dealinfo p {
     word-wrap: break-word;
     overflow-y: scroll;
+    white-space: pre-wrap;
     height: 30vmin;
     max-width: 100%;
   }
@@ -1333,9 +1376,15 @@ td:last-child {
   .delete-button {
     scale: 90%;
   }
+
+  .delete-button button {
+    background-color: #b00404;
+    color: whitesmoke;
+  }
   
   #artdtlbutton {
     scale: 100%;
+    background-color: #fc5e03;
   }
   
   .none {

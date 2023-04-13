@@ -23,16 +23,17 @@
 <label>Details:</label>
 <textarea id="editDetailsBox" name="details"><%= artist.details %></textarea>
 <% if (user.admin === true) { %>
-  <label>Change Manager?</label>
+  <label>Keep/Change Manager?</label>
   <select name='userId'>
-  <% users.forEach(function(u) { %>
-  <% if (!u.artists.includes(artist._id)) { %>
+    <% users.forEach(function(u) { %>
   <option value="<%= u._id %>"><%= u.name %></option>
-  <% }}) %>
+  <% }) %>
   </select>
   <% }; %>
 <br><button id="submitEditbutton" type="submit">Update Artist</button>
 </form>
+<% console.log(user._id); %>
 
 </main>
+
 <%- include('../partials/footer') %>

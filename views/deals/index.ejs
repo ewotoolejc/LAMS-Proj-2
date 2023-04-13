@@ -34,7 +34,7 @@
             `${a.name}`
             ).join(', ') %></td>
           <td><form action="/deals/<%= d._id %>"><button type="submit" id="dldtlbutton"><% d.name %> Details</button></form></td>
-          <td><% if (user?._id.equals(d.user[0]?._id) || user.admin === true) { %><form action="/deals/<%= d._id %>?_method=DELETE"
+          <td><% if (user?._id.equals(d.user[0]?._id) || user?.admin === true) { %><form action="/deals/<%= d._id %>?_method=DELETE"
             class="delete-button" method="POST">
             <button type="submit">Delete Deal</button></form><% } %></td>
         </tr>

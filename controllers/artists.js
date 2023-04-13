@@ -36,20 +36,26 @@ async function edit(req, res) {
 
 async function update(req, res) {
     const artist = await Artist.findById(req.params.id);
-    console.log(req.body.userId);
+    // if (req.body.userId === '') {
+    //     await Artist.updateOne(artist, req.body);
+    //     res.redirect(`/artists/${artist._id}`)
+    // //  const user = await User.findById(req.body.userId);
+    // // user.artists.push(artist._id)
+    // // await user.save();
+    // };
     if (artist.signed === true) {
     req.body.signed_on += 'T00:00';
     } else if (artist.signed === false) {
         req.body.signed_on = '';
-    }
-    await Artist.updateOne(artist, req.body);
-    artist.user.push(req.body.userId);
-    await artist.save();
-    if (req.body.userId !== undefined) {
+    };
+    if (req.body.userId === undefined) {
     const user = await User.findById(req.body.userId);
     user.artists.push(artist._id)
     await user.save();
     };
+    await Artist.updateOne(artist, req.body);
+    artist.user.push(req.body.userId);
+    await artist.save();
     res.redirect(`/artists/${artist._id}`);
 };
 

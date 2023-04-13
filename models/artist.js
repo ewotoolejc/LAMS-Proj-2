@@ -25,7 +25,7 @@ const artistSchema = new Schema ({
     user: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
-        set: c => c === '' ? undefined : c, 
+        // set: c => c === "new ObjectId('042f2f8a6e702efca3cec286')" ? undefined : c,
 }],
 }, {
     timestamps: true,
