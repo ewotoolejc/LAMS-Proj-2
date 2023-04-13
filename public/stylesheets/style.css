@@ -69,7 +69,7 @@ nav > a:hover:not(.active) {
   background-color: rgba(174, 179, 190, .9);
   padding: 2vmin;
   border-radius: 3vmin;
-  font-size: large;
+  font-size: x-large;
 }
 
 #hometxt {
@@ -199,7 +199,7 @@ a {
 }
 
 #artistpicdetail {
-  scale: 100%;
+  scale: 70%;
   border: whitesmoke;
   border-style: solid;
   border-radius: 50%;
@@ -450,6 +450,65 @@ table-layout: fixed;
   justify-self: center;
 }
 
+#edituserinfo {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+#userbackhome {
+  display: none;
+}
+
+#useredittitle {
+  grid-column: 2/3;
+  color: #b00404;
+  text-shadow: -1px 0 , 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  text-align: center;
+  align-self: center;
+}
+
+#userbackhome {
+  background-color: #b00404;
+  color: white;
+}
+
+#userbackhome:hover {
+  background-color: white;
+  color: #b00404;
+}
+
+#usereditform {
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  color: #b00404;
+  font-size: medium;
+  background-color: rgba(174, 179, 190, .7);
+  padding: 2vmin;
+  border-radius: 2vmin;
+}
+
+#myartists{
+  text-shadow: -1px 0 #fc5e03, 0 1px #fc5e03, 1px 0 #fc5e03, 0 -1px #fc5e03;
+  justify-self: center;
+}
+
+#myartists a {
+  color: #b00404;
+}
+
+#mydeals {
+  color: #b00404;
+  text-shadow: -1px 0 #6b03fc, 0 1px #6b03fc, 1px 0 #6b03fc, 0 -1px #6b03fc;
+  justify-self: center;
+}
+
+#mydeals a {
+  color: #b00404;
+}
+
 .table{
   width: 100%;
 }
@@ -490,6 +549,8 @@ td:last-child {
 .none {
   color: darkred;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  justify-self: center;
+  align-self: center;
 }
 
 }
@@ -745,7 +806,7 @@ td:last-child {
     justify-self: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(5, auto);
     color: whitesmoke;
     font-size: medium;
     background-color: rgba(174, 179, 190, .9);
@@ -778,14 +839,20 @@ td:last-child {
     border-radius: 50%;
   }
 
-  #signeddate {
+  #assignedto {
     grid-row: 1/2;
     grid-column: 1/2;
     align-self: center;
   }
 
-  #dealsforartist {
+  #signeddate {
     grid-row: 2/3;
+    grid-column: 1/2;
+    align-self: center;
+  }
+
+  #dealsforartist {
+    grid-row: 3/4;
     margin-bottom: 2vmin;
   }
 
@@ -850,17 +917,11 @@ td:last-child {
   }
   
   #discography {
-    color: whitesmoke;
+    color: #2bba00;
     text-shadow: -1px 0 #fc5e03, 0 1px #fc5e03, 1px 0 #fc5e03, 0 -1px #fc5e03;
     padding: 2vmin;
-    padding-left: 8vmin;
-    padding-right: 8vmin;
-    font-size: x-large;
     justify-self: center;
   }
-  
-  /* #songstable {
-  } */
 
   #editartistdetail {
     display: grid;
@@ -1184,7 +1245,63 @@ td:last-child {
   #watchartdtl:hover {
     background-color: rgba(43, 186, 0, .5);
   }
+
+  #edituserinfo {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   
+  #usereditoneline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #useredittitle {
+    grid-column: 2/3;
+    color: #b00404;
+    text-shadow: -1px 0 , 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    text-align: center;
+    align-self: center;
+  }
+
+  #userbackhome {
+    background-color: #b00404;
+    color: white;
+  }
+
+  #userbackhome:hover {
+    background-color: white;
+    color: #b00404;
+  }
+
+  #usereditform {
+    justify-self: center;
+    align-self: center;
+    color: #b00404;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .7);
+    padding: 2vmin;
+    border-radius: 2vmin;
+  }
+
+  #myartists{
+    text-shadow: -1px 0 #fc5e03, 0 1px #fc5e03, 1px 0 #fc5e03, 0 -1px #fc5e03;
+  }
+
+  #myartists a {
+    color: #b00404;
+  }
+
+  #mydeals {
+    color: #b00404;
+    text-shadow: -1px 0 #6b03fc, 0 1px #6b03fc, 1px 0 #6b03fc, 0 -1px #6b03fc;
+  }
+  
+  #mydeals a {
+    color: #b00404;
+  }
+
   .table{
     width: 100%;
   }
@@ -1224,12 +1341,18 @@ td:last-child {
   .none {
     color: darkred;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    justify-self: center;
+    align-self: center;
   }
   
   .go-back {
     justify-self: right;
     align-self: center;
     grid-column: 3/4;
+  }
+
+  h2 {
+    justify-self: center;
   }
 
 }

@@ -34,7 +34,7 @@
           <td><%= a.name %></td>
           <td><%= a.signed_on.toLocaleDateString() %></td>
           <td id="artistdetlinkcell"><form action="/artists/<%= a._id %>"><button type="submit" id="artdtlbutton"><% a.name %> Details</button></form></td>
-          <td><% if (user) { %><form action="/artists/<%= a.id %>?_method=DELETE"
+          <td><% if (user?._id.equals(a.user[0]?._id) || user.admin === true) { %><form action="/artists/<%= a.id %>?_method=DELETE"
             class="delete-button" method="POST">
             <button type="submit">Delete Artist</button></form><% } %></td>
         </tr>

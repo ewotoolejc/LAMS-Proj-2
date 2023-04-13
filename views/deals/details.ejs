@@ -13,6 +13,7 @@
 </div>
 
 <div id="allDealdetails">
+    <div id="createdby">Deal created by: <%= deal.user[0]?.name %> </div>
     <div id="artistsondeal"><p>Artists on Deal/Partnership:</p><%- deal.artists.map(a =>
         `<p><a href="/artists/${a._id}">${a.name}</a></p>`
         ).join('') %></div>

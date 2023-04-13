@@ -24,23 +24,32 @@ async function newArtist(req, res) {
 };
 
 async function details(req, res) {
-    const artist = await Artist.findById(req.params.id).populate('deals');
+    const artist = await Artist.findById(req.params.id).populate('deals').populate('user');
     res.render('artists/details', { title: `${artist.name}`, artist })
 };
 
 async function edit(req, res) {
     const artist = await Artist.findById(req.params.id).populate('deals');
-    res.render('artists/edit', { title: `${artist.name} Edit`, artist })
+    const users = await User.find({} );
+    res.render('artists/edit', { title: `${artist.name} Edit`, artist, users })
 };
 
 async function update(req, res) {
     const artist = await Artist.findById(req.params.id);
+    console.log(req.body.userId);
     if (artist.signed === true) {
     req.body.signed_on += 'T00:00';
     } else if (artist.signed === false) {
         req.body.signed_on = '';
     }
     await Artist.updateOne(artist, req.body);
+    artist.user.push(req.body.userId);
+    await artist.save();
+    if (req.body.userId !== undefined) {
+    const user = await User.findById(req.body.userId);
+    user.artists.push(artist._id)
+    await user.save();
+    };
     res.redirect(`/artists/${artist._id}`);
 };
 
@@ -71,13 +80,18 @@ async function addArtisttoDeal(req, res) {
 
 async function create(req, res) {
     req.body.signed = !!req.body.signed;
+    if (req.body.signed === true) {
+    req.body.signed_on += 'T00:00';
+    };
     req.body.user = req.user._id;
     try {
         const artist = await Artist.create(req.body);
-
+        const user = await User.findById(req.body.user);
+        user.artists.push(artist._id);
+        await user.save();
         if (artist.signed === false) {
             res.redirect('/watch');
-            };
+        };
         res.redirect(`/artists/${artist._id}`)
      } catch (err) {
        console.log(err);

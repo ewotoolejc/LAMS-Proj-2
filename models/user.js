@@ -9,7 +9,16 @@ const userSchema = new Schema({
     required: true
   },
   email: String,
-  avatar: String
+  avatar: String,
+  artists: [{
+    type: Schema.Types.ObjectId,
+    ref: "Artist"
+}],
+deals: [{
+  type: Schema.Types.ObjectId,
+  ref: 'Deal'
+}],
+admin: Boolean,
 }, {
   timestamps: true
 });

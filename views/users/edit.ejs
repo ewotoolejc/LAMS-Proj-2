@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+<main id="edituserinfo">
+
+    <div id="usereditoneline">
+<form action="/" class="go-back">
+    <button id="userbackhome">Back to Home</button>
+</form>
+<h1 id="useredittitle" >Your Account</h1>
+</div>
+
+<form id ="usereditform" action="/users/<%= user._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Edit Your Name:</label>
+    <input type="text" name="name" value="<%= user.name %>">
+    <label>Edit Your Label Name:</label>
+    <input type="text" name="labelname" value="<%= user.labelname %>">
+    <button type="submit">Update Account</button>
+</form>
+
+
+<h2 id="myartists" ><a href='/artists'>My Artists</a></h2>
+<% if (user.artists.length) { %>
+<table id="userarttable" class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Detail Page</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% user.artists.forEach(function(a) { %>
+        <tr>
+          <td><%= a.name %></td>
+          <td id="userartdtl"><form action="/artists/<%= a._id %>">
+            <button type="submit" id="artdtlbutton"><%= a.name %> Details</button>
+          </form></td>
+          <td><form action="/artists/<%= a.id %>?_method=DELETE"
+            class="delete-button" method="POST">
+            <button type="submit">Delete Artist</button></form></td>
+        </tr>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table> 
+  <% } else { %>
+    <h2 class="none">No artists yet! &#128557; </h2>
+<% }; %>
+
+<h2 id="mydeals" ><a href='/deals'>My Deals</a></h2>
+<% if (user.deals.length) { %>
+    <table id="userdltable" class="table">
+        <thead>
+          <tr>
+            <th>Deal Name</th>
+            <th>Detail Page</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% user.deals.forEach(function(d) { %>
+            <tr>
+              <td><%= d.name %></td>
+              <td id="userartdtl"><form action="/deals/<%= d._id %>"><button type="submit" id="dldtlbutton"><% d.name %> Details</button></form></td>
+                <td><% if (user) { %><form action="/deals/<%= d._id %>?_method=DELETE"
+            class="delete-button" method="POST">
+                <button type="submit">Delete Deal</button></form><% } %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table> 
+      <% } else { %>
+        <h2 class="none">No Deals yet! &#128557; </h2>
+    <% }; %>
+
+</main>
+<%- include('../partials/footer') %>

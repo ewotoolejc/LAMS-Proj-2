@@ -13,9 +13,9 @@ const songSchema = new Schema ({
 
 const artistSchema = new Schema ({
     name: { type: String, required: true },
-    picture: String,
+    picture: { type: String, set: a => a === '' ? undefined : a },
     signed: { type: Boolean, default: false },
-    signed_on: Date,
+    signed_on: { type: Date, set: b => b === 'T00:00' ? undefined : b },
     details: String,
     songs: [songSchema],
     deals: [{
@@ -24,7 +24,8 @@ const artistSchema = new Schema ({
     }],
     user: [{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        set: c => c === '' ? undefined : c, 
 }],
 }, {
     timestamps: true,

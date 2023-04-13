@@ -21,8 +21,11 @@
 
 <!-- <div id="allelspasttitle"> -->
 <div id="allDetails">
+  <% if (artist.picture !== undefined) { %>
   <img id="artistpicdetail" src="<%= artist.picture %>" alt="<%= artist.name %> picture">
+  <% } %>
   <% if (artist.signed === true) { %>
+  <div id="assignedto">Artist Managed by: <%= artist.user[0]?.name %></div>  
   <div id="signeddate"><p>Signed on: <%= artist.signed_on.toDateString() %></p></div>
   <div id="dealsforartist"><p>Deals/Partnerships for Artist:</p><%- artist.deals.map(d =>
     `<a href="/deals/${d._id}">${d.name}</a>`

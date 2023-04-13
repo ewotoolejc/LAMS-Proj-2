@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <main id="idxwatch">
-
+<% console.log(user); %>
   <div id="wtchsameline">
   <% if (user) { %>
   <form id="watchaddartdform" action="/artists/new">
@@ -33,7 +33,7 @@
           <td id="watchartdtl"><form action="/artists/<%= a._id %>">
             <button type="submit" id="artdtlbutton"><%= a.name %> Details</button>
           </form></td>
-          <td><% if (user) { %><form action="/artists/<%= a.id %>?_method=DELETE"
+          <td><% if (user?._id.equals(a.user[0]?._id) || user.admin === true) { %><form action="/artists/<%= a.id %>?_method=DELETE"
             class="delete-button" method="POST">
             <button type="submit">Delete Watch Artist</button></form><% } %></td>
         </tr>
