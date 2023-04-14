@@ -18,7 +18,7 @@ body button {
 .topnav {
   overflow: hidden;
   background-color: rgba(174, 179, 190, .9);
-  border-radius: 2vmin;
+  border-radius: 4vmin;
   position: relative;
 }
 
@@ -75,6 +75,7 @@ nav > a:hover:not(.active) {
 #hometxt {
   color: #b00404;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 5vmin;
 }
 
 #loginoutnav img {
@@ -524,6 +525,16 @@ table-layout: fixed;
   border-radius: 2vmin;
 }
 
+#usereditform > * {
+  margin: 1vmin;
+}
+
+#usereditform button {
+  background-color: #b00404;
+  color: whitesmoke;
+  padding: 1vmin;
+}
+
 #myartists{
   text-shadow: -1px 0 #fc5e03, 0 1px #fc5e03, 1px 0 #fc5e03, 0 -1px #fc5e03;
   justify-self: center;
@@ -662,6 +673,7 @@ td:last-child {
   #hometxt {
     color: #b00404;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 3vmin;
   }
   
   #loginoutnav img {
@@ -672,6 +684,8 @@ td:last-child {
     display: grid;
     grid-template-columns: 1fr;
     height: 80vh;
+    position: relative;
+    z-index: -1;
   }
   
   #welcomeuser {
@@ -1056,6 +1070,11 @@ td:last-child {
     background-color: rgba(107, 3, 252, .4);
   }
   
+  #dldtlbutton {
+    background-color: #6b03fc;
+    color: whitesmoke;
+  }
+
   #dealsidxtable td:nth-child(3) {
     text-align: center;
     scale: 100%;
@@ -1065,7 +1084,13 @@ td:last-child {
     background-color: rgba(107, 3, 252, .6);
   }
   
+  #newdeal {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   #adddealtitle {
+    justify-self: center;
     color: #6b03fc;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
@@ -1074,6 +1099,7 @@ td:last-child {
   }
   
   #dealsadd {
+    justify-self: center;
     display: flex;
     flex-direction: column;
     color: whitesmoke;
@@ -1082,7 +1108,7 @@ td:last-child {
     border-radius: 2vmin;
     padding: 1vmin;
     margin: 3vmin;
-    max-width: 50%;
+   width: 75%;
   }
   
   #adddealdetails {
@@ -1090,7 +1116,6 @@ td:last-child {
   }
 
   #dealsadd button {
-    max-width: 50%;
     font-size: large;
     font-style: oblique;
     background-color:#6b03fc;
@@ -1326,6 +1351,16 @@ td:last-child {
     background-color: rgba(174, 179, 190, .7);
     padding: 2vmin;
     border-radius: 2vmin;
+  }
+
+  #usereditform > * {
+    margin: 1vmin;
+  }
+
+  #usereditform button {
+    background-color: #b00404;
+    color: whitesmoke;
+    padding: 1vmin;
   }
 
   #myartists{

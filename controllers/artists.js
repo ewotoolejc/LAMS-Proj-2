@@ -39,9 +39,6 @@ async function update(req, res) {
     // if (req.body.userId === '') {
     //     await Artist.updateOne(artist, req.body);
     //     res.redirect(`/artists/${artist._id}`)
-    // //  const user = await User.findById(req.body.userId);
-    // // user.artists.push(artist._id)
-    // // await user.save();
     // };
     if (artist.signed === true) {
     req.body.signed_on += 'T00:00';
@@ -113,4 +110,5 @@ async function deleteArtist(req, res) {
     } else {
     await Artist.deleteOne(artist);
     res.redirect('/artists');
-};};
+    };
+};

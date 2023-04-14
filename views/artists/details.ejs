@@ -19,7 +19,6 @@
   <% } %>
 </div>
 
-<!-- <div id="allelspasttitle"> -->
 <div id="allDetails">
   <% if (artist.picture !== undefined) { %>
   <img id="artistpicdetail" src="<%= artist.picture %>" alt="<%= artist.name %> picture">
@@ -30,32 +29,32 @@
   <div id="dealsforartist"><p>Deals/Partnerships for Artist:</p><%- artist.deals.map(d =>
     `<a href="/deals/${d._id}">${d.name}</a>`
     ).join(', ') %></div>
-    <% } %>
-    <% if (artist.signed === false) { %>
-    <form id="watchtosignedform" action="/artists/<%= artist._id %>/signed?_method=PUT" method="POST" autocomplete="off">
-      <label>Signed?!:</label>
-      <input type="checkbox" name="signed" value="false">
-      <label>Signed On Date:</label>
-      <input type="date" name="signed_on" required>
-      <button type="submit">Yes!</button>
-    </form>
-    <% } %>
-    <div><span id="details">Misc Details:</span></div>
-    <p id="misc_details_box"><%= artist.details %></p>
+  <% } %>
+  <% if (artist.signed === false) { %>
+  <form id="watchtosignedform" action="/artists/<%= artist._id %>/signed?_method=PUT" method="POST" autocomplete="off">
+    <label>Signed?!:</label>
+    <input type="checkbox" name="signed" value="false">
+    <label>Signed On Date:</label>
+    <input type="date" name="signed_on" required>
+    <button type="submit">Yes!</button>
+  </form>
+  <% } %>
+  <div><span id="details">Misc Details:</span></div>
+  <p id="misc_details_box"><%= artist.details %></p>
 </div>
 
 <% if (user) { %>
 <form id="addsongs" method="POST"
   action="/artists/<%= artist._id %>/songs">
-<label>Song Name:</label>
-<input type="text" name="title" required>
-<label>Album Name:</label>
-<input type="text" name="album_name">
-<label>Date Released:</label>
-<input type="date" name='released' required>
-<label>Song Link</label>
-<input type="text" name="songlink" placeholder="Paste an Embed link">
-<button id="addsongbutton" type="submit">Add Song</button>
+  <label>Song Name:</label>
+  <input type="text" name="title" required>
+  <label>Album Name:</label>
+  <input type="text" name="album_name">
+  <label>Date Released:</label>
+  <input type="date" name='released' required>
+  <label>Song Link</label>
+  <input type="text" name="songlink" placeholder="Paste an Embed link">
+  <button id="addsongbutton" type="submit">Add Song</button>
 </form>
 <% } %>
 <h2 id="discography" >Discography</h2>
@@ -85,7 +84,7 @@
     </tbody>
   </table>
   <% } else { %>
-    <h2 class="none" >No Songs yet! &#128557; </h2>
+  <h2 class="none" >No Songs yet! &#128557; </h2>
 <% } %>
 </div>
 

@@ -3,21 +3,20 @@
 
 <h1 id="adddealtitle">Add a New Deal or Partnership</h1>
 
-<form id="dealsadd" method="POST"
-action="/deals/">
-<label>Deal or Partnership Name:</label>
-<input type="text" name="name"><br>
-<label>Details:</label>
-<textarea id="adddealdetails" type="text" name="info"></textarea><br>
-<label>Artists attached to:</label>
-<select name='artistId' multiple>
-<option selected></option>
-<% artists.forEach(function(a) { %>
-<% if (a.signed === true) { %>
-<option value="<%= a._id %>"> <%= a.name %></option>
-<% }}) %>
-</select><br>
-<button id="adddealbutton" type="submit">Add Deal or Partnership</button>
+<form id="dealsadd" method="POST" action="/deals/">
+    <label>Deal or Partnership Name:</label>
+    <input type="text" name="name"><br>
+    <label>Details:</label>
+    <textarea id="adddealdetails" type="text" name="info"></textarea><br>
+    <label>Artists attached to:</label>
+    <select name='artistId' multiple>
+    <option selected></option>
+    <% artists.forEach(function(a) { %>
+    <% if (a.signed === true) { %>
+    <option value="<%= a._id %>"> <%= a.name %></option>
+    <% }}) %>
+    </select><br>
+    <button id="adddealbutton" type="submit">Add Deal or Partnership</button>
 </form>
 
 </main>

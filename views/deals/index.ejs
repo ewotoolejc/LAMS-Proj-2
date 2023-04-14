@@ -4,7 +4,7 @@
 <h1 id="dealtitle">Deals & Partnerships</h1>
 <% if (user) { %>
 <form id="adddlpform" action="/deals/new">
-  <input id="adddlpgbutton" type="submit" value="Add a New Deal or Partnership" />
+  <button id="adddlpgbutton" type="submit">Add a New Deal or Partnership</button>
 </form>
 <% } %>
 
@@ -42,7 +42,7 @@
     </tbody>
   </table> 
 <% } else { %>
-    <h2 class="none">No Deals yet! &#128557; </h2>
+  <h2 class="none">No Deals yet! &#128557; </h2>
 <% } %>
 
 </main>

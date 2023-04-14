@@ -13,14 +13,15 @@ const userSchema = new Schema({
   artists: [{
     type: Schema.Types.ObjectId,
     ref: "Artist"
-}],
-deals: [{
+  }],
+  deals: [{
   type: Schema.Types.ObjectId,
   ref: 'Deal'
-}],
-admin: Boolean,
+  }],
+  admin: Boolean,
 }, {
   timestamps: true
-});
+  }
+);
 
 module.exports = mongoose.model('User', userSchema);

@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
 <main id="edituserinfo">
 
-    <div id="usereditoneline">
-<form action="/" class="go-back">
-    <button id="userbackhome">Back to Home</button>
-</form>
-<h1 id="useredittitle" >Your Account</h1>
+<div id="usereditoneline">
+  <form action="/" class="go-back">
+      <button id="userbackhome">Back to Home</button>
+  </form>
+  <h1 id="useredittitle" >Your Account</h1>
 </div>
 
 <form id ="usereditform" action="/users/<%= user._id %>?_method=PUT" method="POST" autocomplete="off">
-    <label>Edit Your Name:</label>
-    <input type="text" name="name" value="<%= user.name %>">
-    <label>Edit Your Label Name:</label>
-    <input type="text" name="labelname" value="<%= user.labelname %>">
-    <button type="submit">Update Account</button>
+  <label>Edit Your Name:</label>
+  <input type="text" name="name" value="<%= user.name %>">
+  <label>Edit Your Label Name:</label>
+  <input type="text" name="labelname" value="<%= user.labelname %>">
+  <button type="submit">Update Account</button>
 </form>
 
 
@@ -43,7 +43,7 @@
     </tbody>
   </table> 
   <% } else { %>
-    <h2 class="none">No artists yet! &#128557; </h2>
+  <h2 class="none">No artists yet! &#128557; </h2>
 <% }; %>
 
 <h2 id="mydeals" ><a href='/deals'>My Deals</a></h2>
@@ -67,10 +67,10 @@
             </tr>
           <% }); %>
         </tbody>
-      </table> 
-      <% } else { %>
-        <h2 class="none">No Deals yet! &#128557; </h2>
-    <% }; %>
+    </table> 
+    <% } else { %>
+  <h2 class="none">No Deals yet! &#128557; </h2>
+<% }; %>
 
 </main>
 <%- include('../partials/footer') %>

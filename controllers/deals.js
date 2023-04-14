@@ -10,7 +10,7 @@ module.exports = {
     delete: deleteDeal,
     edit,
     update,
-}
+};
 
 async function index(req, res) {
     const deals = await Deal.find({} ).populate('artists').populate('user');
@@ -45,7 +45,6 @@ async function deleteDeal(req,res) {
     res.redirect('/deals');
 };
 
-// WORKS for multiples!
 async function create(req, res) {  
     req.body.user = req.user._id; 
     try {
@@ -76,23 +75,3 @@ async function create(req, res) {
        res.render('deals/new', { errorMsg: err.message });
      }
 };
-
-// WORKS FOR ONE BELOW
-// async function create(req, res) {
-//     req.body.user = req.user._id;
-//     try {
-//         const artist = await Artist.findById(req.body.artistId);
-//         const deal = await Deal.create(req.body);
-//         if (req.body.artistId = ' ') {
-//             res.redirect(`/deals/${deal._id}`);
-//         };        
-//         deal.artists.push(artist._id);
-//         await deal.save();
-//         artist.deals.push(deal._id);
-//         await artist.save();
-//         res.redirect(`/deals/${deal._id}`);
-//      } catch (err) {
-//        console.log(err);
-//        res.render('deals/new', { errorMsg: err.message });
-//      }
-// };

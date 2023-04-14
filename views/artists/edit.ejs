@@ -12,25 +12,25 @@
 <% } %>
 
 <form id ="editform" action="/artists/<%= artist._id %>?_method=PUT" method="POST" autocomplete="off">
-<label>Artist Name:</label>
-<input type="text" name="name" value="<%= artist.name %>">
-<label>Picture Link:</label>
-<input type="text" name="picture">
-<% if (artist.signed === true) { %>
-<label>Signed On:<br><span id="currentDatelabel">(Current is: <%= artist.signed_on.toDateString() %>)</span></label>
-<input type="date" name="signed_on">
-<% } %>
-<label>Details:</label>
-<textarea id="editDetailsBox" name="details"><%= artist.details %></textarea>
-<% if (user.admin === true) { %>
+  <label>Artist Name:</label>
+  <input type="text" name="name" value="<%= artist.name %>">
+  <label>Picture Link:</label>
+  <input type="text" name="picture">
+  <% if (artist.signed === true) { %>
+  <label>Signed On:<br><span id="currentDatelabel">(Current is: <%= artist.signed_on.toDateString() %>)</span></label>
+  <input type="date" name="signed_on">
+  <% } %>
+  <label>Details:</label>
+  <textarea id="editDetailsBox" name="details"><%= artist.details %></textarea>
+  <% if (user.admin === true) { %>
   <label>Keep/Change Manager?</label>
   <select name='userId'>
     <% users.forEach(function(u) { %>
   <option value="<%= u._id %>"><%= u.name %></option>
-  <% }) %>
+    <% }) %>
   </select>
-  <% }; %>
-<br><button id="submitEditbutton" type="submit">Update Artist</button>
+    <% }; %>
+  <br><button id="submitEditbutton" type="submit">Update Artist</button>
 </form>
 <% console.log(user._id); %>
 

@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 <main id="dealdetail">
+
 <div id="onelinedealdet">
     <% if (user) { %>
     <form id="toeditbutton" action="/deals/<%= deal._id %>/edit">
@@ -28,7 +29,7 @@
         <% }}) %>
         </select>
         <button type="submit" >Add Additional Artist</button>    
-    </form>
+        </form>
     <% } %>
     <div id="dealinfo"><p>Deal/Partnership Info:<br><%= deal.info %></p></div>
 </div>

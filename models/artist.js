@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
 const songSchema = new Schema ({
@@ -7,9 +6,10 @@ const songSchema = new Schema ({
     album_name: String,
     released: Date,
     songlink: String,
-}, {
+    }, {
     timestamps: true,
-});
+    }
+);
 
 const artistSchema = new Schema ({
     name: { type: String, required: true },
@@ -26,9 +26,10 @@ const artistSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'User',
         // set: c => c === "new ObjectId('042f2f8a6e702efca3cec286')" ? undefined : c,
-}],
+    }],
 }, {
     timestamps: true,
-});
+    }
+);
 
 module.exports = mongoose.model('Artist', artistSchema);
