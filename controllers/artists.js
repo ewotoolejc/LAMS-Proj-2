@@ -12,6 +12,7 @@ module.exports = {
     update,
     addArtisttoDeal,
     updateToSigned,
+    updateUser,
 };
 
 async function index(req, res) {
@@ -29,30 +30,42 @@ async function details(req, res) {
 };
 
 async function edit(req, res) {
-    const artist = await Artist.findById(req.params.id).populate('deals');
+    const artist = await Artist.findById(req.params.id).populate('deals').populate('user');
     const users = await User.find({} );
     res.render('artists/edit', { title: `${artist.name} Edit`, artist, users })
 };
 
 async function update(req, res) {
     const artist = await Artist.findById(req.params.id);
-    // if (req.body.userId === '') {
-    //     await Artist.updateOne(artist, req.body);
-    //     res.redirect(`/artists/${artist._id}`)
-    // };
     if (artist.signed === true) {
     req.body.signed_on += 'T00:00';
     } else if (artist.signed === false) {
         req.body.signed_on = '';
     };
-    if (req.body.userId === undefined) {
-    const user = await User.findById(req.body.userId);
-    user.artists.push(artist._id)
-    await user.save();
-    };
     await Artist.updateOne(artist, req.body);
+    res.redirect(`/artists/${artist._id}`);
+};
+
+// below not included in submitted for GA, lines 65-69 work but not 55-64
+async function updateUser(req, res) {
+    const artist = await Artist.findById(req.params.id);
+    const newUser = await User.findById(req.body.userId);
+    if (artist.user.length) {
+    const oldUser = await User.findById(artist.user);
+    await Artist.updateOne({ _id: req.params.id }, { $pop: { user: 1 } } );
+    console.log(artist);
     artist.user.push(req.body.userId);
     await artist.save();
+    await User.updateOne({ _id: artist.user }, { $pull: { artists: artist._id }});
+    console.log(oldUser);
+    newUser.artists.push(req.params.id);
+    await newUser.save();
+    res.redirect(`/artists/${artist._id}`);
+    };
+    artist.user.push(req.body.userId);
+    await artist.save();
+    newUser.artists.push(req.params.id)
+    await newUser.save();
     res.redirect(`/artists/${artist._id}`);
 };
 

@@ -980,11 +980,15 @@ td:last-child {
   }
 
   #editartistdetail {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     max-height: 130vmin;
   }
   
+  #editartistdetail .go-back {
+    align-self: flex-end;
+  }
+
   #editform {
     justify-self: left;
     display: grid;
@@ -995,7 +999,7 @@ td:last-child {
     border-radius: 2vmin;
     padding: 1vmin;
     margin: 3vmin;
-    min-width: 80vmin;
+    width: 50%;
   }
   
   #editform > * {
@@ -1025,9 +1029,36 @@ td:last-child {
   }
   
   #editDetailsBox {
+    width: 95%;
     resize: vertical;
   }
+
+  #updateuser {
+    align-self: left;
+    display: grid;
+    grid-template-columns: 1fr;
+    color: whitesmoke;
+    font-size: medium;
+    background-color: rgba(174, 179, 190, .9);
+    border-radius: 2vmin;
+    padding: 1vmin;
+    margin: 1vmin;
+    width: 25%;
+  }
   
+  #submituserupdatebutton {
+    background-color: #fc5e03;
+    color: #2bba00;
+    font-size: large;
+    font-style: oblique;
+    font-weight: bold;
+  }
+
+  #submituserupdatebutton:hover {
+    background-color: #2bba00;
+    color: #fc5e03;
+  }
+
   #idxdeals {
     display: grid;
   }

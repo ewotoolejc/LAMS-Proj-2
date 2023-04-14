@@ -14,5 +14,6 @@ router.delete('/artists/:id', ensureLoggedIn, artistsCtrl.delete);
 router.put('/artists/:id', ensureLoggedIn, artistsCtrl.update);
 router.put('/deals/:id/artists', ensureLoggedIn, artistsCtrl.addArtisttoDeal);
 router.put('/artists/:id/signed', ensureLoggedIn, artistsCtrl.updateToSigned);
+router.put('/artists/:id/user', ensureLoggedIn, artistsCtrl.updateUser);
 
 module.exports = router;

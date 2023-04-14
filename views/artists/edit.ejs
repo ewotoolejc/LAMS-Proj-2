@@ -22,17 +22,21 @@
   <% } %>
   <label>Details:</label>
   <textarea id="editDetailsBox" name="details"><%= artist.details %></textarea>
-  <% if (user.admin === true) { %>
-  <label>Keep/Change Manager?</label>
+  <br><button id="submitEditbutton" type="submit">Update Artist</button>
+</form>
+
+<% if (user.admin === true) { %>
+<form id ="updateuser" action="/artists/<%= artist._id %>/user?_method=PUT" method="POST" autocomplete="off">
+  <label>Change Manager?</label>
   <select name='userId'>
     <% users.forEach(function(u) { %>
   <option value="<%= u._id %>"><%= u.name %></option>
     <% }) %>
   </select>
-    <% }; %>
-  <br><button id="submitEditbutton" type="submit">Update Artist</button>
+  <br><button id="submituserupdatebutton" type="submit">Update Manager</button>
 </form>
-<% console.log(user._id); %>
+<% }; %>
+
 
 </main>
 

@@ -89,7 +89,7 @@ Your Account Page:
 
 ![MongoDb](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Mongoose](https://avatars.githubusercontent.com/u/7552965?s=400&v=4)
-
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
 </div>
 
