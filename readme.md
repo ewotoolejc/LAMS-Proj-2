@@ -104,7 +104,7 @@ Your Account Page:
 
 - AAU I want to be able to add a Watch artist and auto specify they are not signed vs when I add a Signed artist where it should be true.
 
-- AAU who is an Admin, I want to be able to make updates to artists without having to respecify or change the Manager.
+- AAU who is an Admin, I want to be able to make updates to artists without having to respecify or change the Manager.(UPDATE 4.14.23: This is now functional!)
 
 - AAU I want to listen to the songs added via Spotify Web Api (SUPER ICEBOX) :cold_face:
 

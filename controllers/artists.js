@@ -46,27 +46,28 @@ async function update(req, res) {
     res.redirect(`/artists/${artist._id}`);
 };
 
-// below not included in submitted for GA, lines 65-69 work but not 55-64
 async function updateUser(req, res) {
     const artist = await Artist.findById(req.params.id);
     const newUser = await User.findById(req.body.userId);
     if (artist.user.length) {
     const oldUser = await User.findById(artist.user);
-    await Artist.updateOne({ _id: req.params.id }, { $pop: { user: 1 } } );
-    console.log(artist);
-    artist.user.push(req.body.userId);
+    artist.user.remove(oldUser._id);
     await artist.save();
-    await User.updateOne({ _id: artist.user }, { $pull: { artists: artist._id }});
-    console.log(oldUser);
+    oldUser.artists.remove(req.params.id);
+    await oldUser.save();
     newUser.artists.push(req.params.id);
     await newUser.save();
+    artist.user.push(req.body.userId);
+    await artist.save();
     res.redirect(`/artists/${artist._id}`);
     };
+    if (artist.user.length < 1) {
     artist.user.push(req.body.userId);
     await artist.save();
     newUser.artists.push(req.params.id)
     await newUser.save();
     res.redirect(`/artists/${artist._id}`);
+    };
 };
 
 async function updateToSigned(req, res) {
