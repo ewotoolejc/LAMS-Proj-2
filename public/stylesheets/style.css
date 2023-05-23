@@ -3,7 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-image: url('https://scontent-dfw5-1.xx.fbcdn.net/v/t31.18172-8/12091323_10153759342049124_614968575717268529_o.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=yeM6F78ZK4IAX-XkKWg&_nc_oc=AQmCaMyJJIrrJZj1vId_9rZf2u01Wj0ZOX45niNf9IfF84nUlkF2H9c6GnW1TURkj7snpz30Ijv5uSphjQeuTQPL&_nc_ht=scontent-dfw5-1.xx&oh=00_AfDLgbvG4zjUX9of-dbmf-9iD4CdAPSX_eJat1XkYdaZ3g&oe=6456B43E');
+  background-image: url('https://lams-proj-2.herokuapp.com/public/images/Matt_Smith_JBS.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -611,7 +611,7 @@ td:last-child {
 
   body {
     display: grid;
-    background-image: url('https://scontent-dfw5-2.xx.fbcdn.net/v/t31.18172-8/12087213_10153759342074124_5830885128769760498_o.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=w66Hn2dUDlEAX91OUyQ&_nc_oc=AQkV34pDRvxjUty42NldwDa-2VliiCfU6lMbUfmE4YPAKJ-fHW1FuciDSRTz7Q3hUqoXOqibwArv-YbSnr6tX80s&_nc_ht=scontent-dfw5-2.xx&oh=00_AfBUFb0QqIi42Lko8Saq5nD3oePDBmFihAoV31cO-rI1TQ&oe=645AF03E');
+    background-image: url('https://lams-proj-2.herokuapp.com/public/images/all_JBS.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
