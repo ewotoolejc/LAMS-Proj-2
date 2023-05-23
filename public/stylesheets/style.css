@@ -3,7 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-image: url('https://lams-proj-2.herokuapp.com/public/images/Matt_Smith_JBS.jpg');
+  background-image: url('https://i.imgur.com/rlB7sTb.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -611,7 +611,7 @@ td:last-child {
 
   body {
     display: grid;
-    background-image: url('https://lams-proj-2.herokuapp.com/public/images/all_JBS.jpg');
+    background-image: url('https://i.imgur.com/Pt9LcsL.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
