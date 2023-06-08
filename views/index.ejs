@@ -5,7 +5,14 @@
 <p id="welcomeuser" > Welcome back to your LAMS, <%= user.name %> at <%= user.labelname %>!</p>
 <% } %>
 
-<p id="homeh1">LAMS: <br>THE Label Artist Management System</p>
+<%  if (!user) { %>
+<br />
+<div id="home-gif">
+    <div id="LAMS-txt">LAMS</div>
+</div>
+
+<p id="homeh1"><span id="italic">THE</span><br /> Label Artist Management System</p>
+<% } %>
 
 </main>
 <%- include('./partials/footer') %>
