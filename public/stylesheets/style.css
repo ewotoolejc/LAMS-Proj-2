@@ -88,6 +88,7 @@ nav > a:hover:not(.active) {
   flex-direction: column;
   align-items: center;
   height: 70vmin;
+  gap: 1vmin;
 }
 
 #home-gif {
@@ -101,6 +102,7 @@ nav > a:hover:not(.active) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 3vmin;
 }
 
 #LAMS-txt {
@@ -453,13 +455,13 @@ table-layout: fixed;
   justify-self: center;
   align-self: center;
   text-align: center; 
-  font-size: x-large;
+  font-size: 8vmin;
 }
 
 #toeditbutton {
   justify-self: center;
   align-self: center;
-  scale: 80%;
+  scale: 90%;
   margin: 2vmin;
 }
 
@@ -474,7 +476,6 @@ table-layout: fixed;
   max-width: 100%;
 
 }
-
 
 #dealinfo p {
   word-wrap: break-word;
@@ -751,6 +752,7 @@ td:last-child {
     align-items: center;
     align-content: center;
     height: 70vmin;
+    gap: 1vmin;
   }
   
   #home-gif {
@@ -764,6 +766,7 @@ td:last-child {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 3vmin;
   }
   
   #LAMS-txt {
@@ -1280,6 +1283,7 @@ td:last-child {
     justify-self: center;
     align-self: center;
     text-align: center;
+    font-size: 8vmin;
   }
   
   #toeditbutton {
