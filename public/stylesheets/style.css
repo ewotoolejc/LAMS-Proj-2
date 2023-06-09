@@ -153,8 +153,8 @@ a {
 
 #addartfromroster {
   justify-self: center;
-  margin: 4vmin;
-  scale: 70%;
+  margin: 1vmin;
+  scale: 80%;
 }
 
 #addartbutton {
@@ -166,7 +166,7 @@ a {
   color: #fc5e03;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   justify-self: center;
-  font-size: x-large;
+  font-size: 7vmin;
 }
 
 #rosterTH {
@@ -236,7 +236,7 @@ a {
 
 #toeditartform {
   margin: 1vmin;
-  scale: 70%;
+  scale: 90%;
   justify-self: center;
 }
 
@@ -254,6 +254,7 @@ a {
   background-color: rgba(174, 179, 190, .85);
   border-radius: 2vmin;
   padding: 1vmin;
+  margin: 2vmin;
   max-width: 100%;
 }
 
@@ -373,14 +374,14 @@ table-layout: fixed;
   justify-self: center;
   align-self: center;
   text-align: center; 
-  font-size: x-large;
+  font-size: 8vmin;
 }
 
 #adddlpform {
   justify-self: center;
   align-self: center;
-  margin: 3vmin;
-  scale: 70%;
+  margin: 1vmin;
+  scale: 90%;
 }
 
 #adddlpgbutton {
@@ -653,7 +654,8 @@ td:last-child {
 .go-back {
   justify-self: center;
   align-self: center;
-  scale: 80%;
+  scale: 90%;
+  margin: 1vmin;
 }
 
 .none {
@@ -851,6 +853,7 @@ td:last-child {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
     position: absolute;
+    font-size: 8vmin;
   }
   
   #artisttable {
@@ -1041,17 +1044,23 @@ td:last-child {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     font-size: medium;
     margin: 2vmin;
     background-color: rgba(252, 94, 3, .7);
     padding: 2vmin;
     border-radius: 2vmin;
     width: 70vw;
+    gap: .5vmin;
   }
   
   #addsongs > * {
-    width: 80vw;
     text-align: center;
+    font-size: 2vmin;
+  }
+
+  #addsongs input {
+    min-width: 2vmin;
   }
   
   #addsongbutton {
@@ -1167,7 +1176,8 @@ td:last-child {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     justify-self: center;
     align-self: center;
-    text-align: center; 
+    text-align: center;
+    font-size: 8vmin;
   }
   
   #adddlpform {
@@ -1181,7 +1191,7 @@ td:last-child {
     color: whitesmoke;
     border-style: solid;
     border-color: white;
-    scale: 120%;
+    scale: 90%;
     padding: 1vmin;
   }
 

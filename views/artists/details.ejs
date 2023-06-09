@@ -2,7 +2,7 @@
 <main id="artistdetail">
 
   <div id="onelineart">
-  <% if (user) { %>
+  <% if (user?._id.equals(artist.user[0]?._id) || user?.admin === true) { %>
   <form id="toeditartform" action="/artists/<%= artist._id %>/edit">
     <button id="toeditartbut" type="submit">Edit Artist Info</button></form>
     <% } %>
@@ -52,7 +52,7 @@
   <input type="text" name="album_name">
   <label>Date Released:</label>
   <input type="date" name='released' required>
-  <label>Song Link</label>
+  <label>Song Link:</label>
   <input type="text" name="songlink" placeholder="Paste an Embed link">
   <button id="addsongbutton" type="submit">Add Song</button>
 </form>
